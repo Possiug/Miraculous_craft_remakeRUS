@@ -1,0 +1,321 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "miraculous:nooroo",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+	},
+	    "component_groups": {
+	    "aqua_nooroo": {
+		  "minecraft:transformation": {
+		    "into": "miraculous:aqua_nooroo",
+		    "drop_inventory": true
+		  }
+		},
+		"power_short": {
+		  "minecraft:input_ground_controlled": {},
+		  "minecraft:timer": {
+		    "time": 140,
+		    "time_down_event": {
+		      "event": "power_empty"
+		    }
+		  },
+		  "minecraft:is_ignited": {}
+		},
+		"power_long": {
+		  "minecraft:input_ground_controlled": {},
+		  "minecraft:timer": {
+		    "time": 850,
+		    "time_down_event": {
+		      "event": "power_empty"
+		    }
+		  },
+		  "minecraft:is_ignited": {}
+		}
+    },
+	"components": {
+		"minecraft:type_family": {
+		  "family": [
+		    "kwami"
+		  ]
+		},
+		"minecraft:interact": {
+		  "interactions": [
+		{
+		  "on_interact": {
+		    "filters": {
+			  "all_of": [
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_cat" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_ladybug" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_bee" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_turtle" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_fox" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_peacock" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_butterfly" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_horse" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_dragon" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_snake" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_tiger" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_mouse" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_pig" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_goat" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_rooster" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_bull" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_dog" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_monkey" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_rabbit" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_eagle" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_aqua" },
+			    { "test": "is_owner", "subject": "player" },
+			    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "miraculous:camo_butterfly_miraculous" },
+			    { "test": "is_variant", "subject": "self", "value": "0" },
+			    { "test": "is_sneaking", "subject": "other", "operator": "=", "value": "false" }
+			  ]
+			},
+			"event": "is_butterfly_transformation"
+		  },
+		  "interact_text": "action.interact.transform",
+		  "use_item": true
+		},
+	    {
+		  "on_interact": {
+		    "filters": {
+			  "all_of": [
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_cat" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_ladybug" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_bee" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_turtle" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_fox" },
+			    { "test": "has_tag", "subject": "other", "operator": "=", "value": "is_peacock" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_butterfly" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_horse" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_dragon" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_snake" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_tiger" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_mouse" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_pig" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_goat" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_rooster" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_bull" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_dog" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_monkey" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_rabbit" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_eagle" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_aqua" },
+			    { "test": "is_owner", "subject": "player" },
+			    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "miraculous:camo_butterfly_miraculous" },
+			    { "test": "is_variant", "subject": "self", "value": "0" },
+			    { "test": "is_sneaking", "subject": "other", "operator": "=", "value": "false" }
+			  ]
+			},
+			"event": "is_butterfly_peacock"
+		  },
+		  "interact_text": "action.interact.unify",
+		  "use_item": true
+		},
+	    {
+		  "on_interact": {
+		    "filters": {
+			  "all_of": [
+			    { "test": "is_sneaking", "subject": "player" },
+			    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "miraculous:camo_butterfly_miraculous" }
+			  ]
+			},
+			"event": "butterfly_miraculous_resigns"
+		  },
+		  "interact_text": "action.interact.renounce",
+		  "use_item": true
+		},
+	    {
+		  "on_interact": {
+		    "filters": {
+			  "all_of": [
+			    { "test": "is_owner", "subject": "player" },
+			    { "test": "has_equipment", "subject": "player", "domain": "hand", "value": "miraculous:aqua_potion" }
+			  ]
+			},
+			"event": "become_aqua_nooroo"
+		  },
+		  "interact_text": "action.interact.power.up",
+		  "use_item": true
+		    }
+		  ]
+		},
+		"minecraft:health": {
+		  "value": 5000,
+		  "max": 5000
+		},
+		"minecraft:collision_box": {
+		  "width": 0.6,
+		  "height": 0.8
+		},
+		"minecraft:physics": {},
+		"minecraft:is_stackable": {},
+		"minecraft:pushable": {
+		  "is_pushable": true,
+		  "is_pushable_by_piston": true
+		},
+      "minecraft:movement": {
+        "value": 0.25
+      },
+      "minecraft:fall_damage": {
+        "value": 0.0
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.mount_pathing": {
+        "priority": 2,
+        "speed_multiplier": 1.5,
+        "target_dist": 0.0,
+        "track_target": true
+      },
+      "minecraft:behavior.tempt": {
+        "priority": 4,
+        "speed_multiplier": 1.0,
+        "items": [
+          "miraculous:camo_butterfly_miraculous",
+          "cookie"
+        ]
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 1.0
+        },
+      "minecraft:equip_item": {},
+      "minecraft:tameable": {
+        "probability": 1,
+        "tameItems": [
+          "cookie"
+        ],
+        "tame_event": {
+          "event": "minecraft:on_tame",
+          "target": "self"
+        }
+      },
+      "minecraft:behavior.follow_owner": {
+        "start_distance": 10.0,
+        "speed_multiplier": 1.0,
+        "stop_distance": 2.0,
+        "priority": 6
+      },
+		"minecraft:behavior.player_ride_tamed": {},
+		"minecraft:conditional_bandwidth_optimization": {
+		  "default_values": {
+			"max_optimized_distance": 60,
+			"max_dropped_ticks": 20,
+			"use_motion_prediction_hints": true
+		  },
+		  "conditional_values": [
+		    {
+			"max_optimized_distance": 0,
+			"max_dropped_ticks": 0,
+			  "conditional_values": [
+			    {
+					"test": "is_moving",
+					"subject": "self",
+					"operator": "==",
+					"value": true
+			    }
+			  ]
+		    }
+		  ]
+		}
+	},
+	"events": {
+	    "become_aqua_nooroo": {
+				"sequence": [
+					{
+                   "add": {
+							"component_groups": [
+								"aqua_nooroo"
+							]
+						}
+					},
+					{
+                "run_command": {
+                  "command": [
+                    "tellraw @a {\"rawtext\":[{\"text\":\"§f<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:power_up\"}]}",
+                    "playsound powerup @a ~~~"
+							]
+						}
+					}
+				]
+			},
+	    "is_butterfly_transformation": {
+        "run_command": {
+            "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§5<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:nooroo_dark_wings_rise\"}]}",
+            "gamerule sendcommandfeedback false",
+			"tag @p add transforming",
+            "playsound dark_wings_rise @a ~~~",
+            "clear @p[tag=transforming] miraculous:camo_butterfly_miraculous",
+            "kill @s [type=miraculous:nooroo]",
+            "event entity @p[tag=transforming] hawk_moth",
+            "give @p[tag=transforming] miraculous:butterfly_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=transforming] miraculous:butterfly_cane 1 0 {\"keep_on_death\":{}}",
+            "tag @p[tag=transforming] add is_butterfly",
+			"tag @p remove transforming"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "instant_despawn"
+			]
+		  }
+	    },
+      "is_butterfly_peacock": {
+        "run_command": {
+            "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§5<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:duusu_nooroo_unify\"}]}",
+            "gamerule sendcommandfeedback false",
+			"tag @p add transforming",
+            "playsound dark_wings_rise @a ~~~",
+            "clear @p[tag=transforming] miraculous:camo_butterfly_miraculous",
+            "kill @s [type=miraculous:nooroo]",
+            "replaceitem entity @p[tag=transforming] slot.armor.head 0 miraculous:shadow_moth_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=transforming] slot.armor.chest 0 miraculous:shadow_moth_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=transforming] slot.armor.legs 0 miraculous:shadow_moth_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=transforming] slot.armor.feet 0 miraculous:shadow_moth_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "give @p[tag=transforming] miraculous:butterfly_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=transforming] miraculous:butterfly_cane 1 0 {\"keep_on_death\":{}}",
+            "tag @p[tag=transforming] add is_butterfly",
+			"tag @p remove transforming"
+
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "instant_despawn"
+			]
+		  }
+	    },
+      "butterfly_miraculous_resigns": {
+        "run_command": {
+            "command": [
+            "gamerule sendcommandfeedback false",
+            "playsound miracle_box_enter @a ~~~",
+            "clear @p miraculous:camo_butterfly_miraculous",
+            "give @p miraculous:butterfly_miraculous_resigns 1 0 {\"keep_on_death\":{}}",
+            "kill @s [type=miraculous:nooroo]"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "instant_despawn"
+
+			]
+		  }
+		}
+	}
+  }
+}

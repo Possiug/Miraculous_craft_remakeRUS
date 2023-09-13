@@ -1,0 +1,77 @@
+{
+	"format_version": 1,
+	"metadata": {
+		"authors": [
+			"Kauã",
+			"Possiug",
+			"Nerabrin"
+		],
+		"generated_with": {
+			"bridge": [
+				"2.6.1"
+			],
+			"dash": [
+				"0.10.10"
+			]
+		}
+	},
+	"header": {
+		"name": "Miraculous Craft - BP",
+		"description": "Созданно Kauã Переведенно Possiug и Nerabrin, Инициатива: TITAN",
+		"min_engine_version": [
+			1,
+			12,
+			0
+		],
+		"uuid": "33e3b8e7-552f-48b2-8e7b-bdada25e99c8",
+		"version": [
+			1,
+			0,
+			0
+		]
+	},
+	"modules": [
+		{
+			"type": "data",
+			"uuid": "70537ed2-daf0-40fc-9124-7092bb59c5f0",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"type": "script",
+			"language": "javascript",
+			"uuid": "de591d93-4b15-42ec-aa75-ff5acd48d555",
+			"entry": "scripts/main.js",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "7b0456ec-1d61-489f-9591-c97f1af3a09a",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.4.0-beta"
+		},
+		{
+			"module_name": "@minecraft/server-gametest",
+			"version": "1.0.0-beta"
+		},
+		{
+			"module_name": "@minecraft/server-ui",
+			"version": "1.2.0-beta"
+		}
+	]
+}

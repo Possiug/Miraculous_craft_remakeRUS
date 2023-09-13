@@ -1,0 +1,1638 @@
+{
+  "format_version": "1.17.10",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:player",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false,
+	  "scripts": {
+	    "animate": [ "start","miraculous_timer","item" ]
+      },  
+	  "animations": {
+	    "start": "controller.animation.start",
+	    "miraculous_timer": "controller.animation.miraculous_timer",
+	    "item": "controller.animation.item"
+	  }
+    },
+    "components": {
+	  "minecraft:type_family": {
+	    "family": [ "player"]
+	  },
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:movement": {
+        "value": 0.1
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/empty.json"
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.8
+      },
+      "minecraft:can_climb": {
+      },
+      "minecraft:player.saturation": {
+        "value": 20
+      },
+      "minecraft:player.exhaustion": {
+        "value": 0,
+        "max": 4
+      },
+      "minecraft:player.level": {
+        "value": 0,
+        "max": 24791
+      },
+      "minecraft:player.experience": {
+        "value": 0,
+        "max": 1
+      },
+      "minecraft:breathable": {
+        "totalSupply": 15,
+        "suffocateTime": -1,
+        "inhaleTime": 3.75,
+        "generatesBubbles": false
+      },
+      "minecraft:nameable": {
+        "alwaysShow": true,
+        "allowNameTagRenaming": false
+      },
+      "minecraft:physics": {
+
+      },
+      "minecraft:insomnia": {
+        "days_until_insomnia": 3
+      },
+      "minecraft:rideable": {
+        "seat_count": 2,
+        "family_types": [
+          "parrot_tame"
+        ],
+        "pull_in_entities": true,
+        "seats": [
+          {
+            "position": [ 0.4, -0.15, 0.04 ],
+            "min_rider_count": 0,
+            "max_rider_count": 0,
+            "lock_rider_rotation": 0
+          },
+          {
+            "position": [ -0.4, -0.15, 0.04 ],
+            "min_rider_count": 1,
+            "max_rider_count": 2,
+            "lock_rider_rotation": 0
+          }
+        ]
+      },
+      "minecraft:scaffolding_climber": {},
+      "minecraft:environment_sensor": [
+	    {
+		  "on_environment": {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_mob_effect",
+                  "subject": "self",
+                  "value": "bad_omen"
+                },
+                {
+                  "test": "is_in_village",
+                  "subject": "self",
+                  "value": true
+                }
+              ]
+            },
+            "event": "minecraft:trigger_raid"
+		  }
+		},
+	    {
+		  "on_environment": {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "self",
+                  "value": "player"
+                }
+              ]
+            },
+            "event": "minecraft:event_normal_player"
+		  }
+		}
+	  ]
+    },
+    "events": {
+      "ladybug_miraculous_detransform": {
+        "run_command": {
+          "command": [
+            "playsound detransform @a ~~~",
+            "clear @p miraculous:multibug_jump_rope",
+            "give @p[tag=multimouse, tag=is_mouse] miraculous:mouse_jump_rope 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=polymouse, tag=is_mouse] miraculous:polymouse_jump_rope 1 0 {\"keep_on_death\":{}}",
+            "ability @p[m=survival] mayfly false",
+            "clear @s miraculous:ladybug_miraculous",
+            "clear @s miraculous:ladybug_yoyo",
+            "clear @s miraculous:lucky_charm_axe",
+            "clear @s miraculous:lucky_charm_mace",
+            "clear @s miraculous:lucky_charm_hammer",
+            "clear @s miraculous:lucky_charm_hoe",
+            "clear @s miraculous:lucky_charm_shovel",
+            "clear @s miraculous:lucky_charm_sword",
+            "clear @s miraculous:lucky_charm_pickaxe",
+            "clear @s miraculous:lucky_charm_flint_and_steel",
+            "give @p[tag=marinette_ladybug] miraculous:camo_ladybug_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=alya_ladybug] miraculous:alya_camo_ladybug_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=adrien_ladybug] miraculous:adrien_camo_ladybug_miraculous 1 0 {\"keep_on_death\":{}}",
+            "kill @e[family=vehicles]",
+            "summon miraculous:tikki",
+            "replaceitem entity @s slot.armor.head 0 air",
+            "replaceitem entity @s slot.armor.chest 0 air",
+            "replaceitem entity @s slot.armor.legs 0 air",
+            "replaceitem entity @s slot.armor.feet 0 air",
+            "clear @s miraculous:bugnoire_yoyo",
+            "event entity @s[tag=is_cat, tag=is_ladybug, tag=cat_noir] cat_noir",
+            "event entity @s[tag=is_cat, tag=is_ladybug, tag=lady_noire] lady_noire",
+            "event entity @s[tag=is_cat, tag=is_ladybug, tag=cat_walker] cat_walker",
+            "event entity @s[tag=is_cat, tag=is_ladybug, tag=maotif] maotif",
+            "event entity @s[tag=is_bee, tag=is_ladybug, tag=queen_bee] queen_bee",
+            "event entity @s[tag=is_bee, tag=is_ladybug, tag=vesperia] vesperia",
+            "event entity @s[tag=is_bee, tag=is_ladybug, tag=marigold] marigold",
+            "event entity @s[tag=is_mouse, tag=is_cat, tag=multimouse, tag=!is_multitude] multimouse",
+            "event entity @s[tag=is_mouse, tag=is_cat, tag=polymouse, tag=!is_multitude] polymouse",
+            "event entity @s[tag=is_multitude, tag=multimouse] multimouse_multitude",
+            "event entity @s[tag=is_multitude, tag=polymouse] polymouse_multitude",
+            "tag @s[tag=is_ladybug] remove is_ladybug",
+            "tag @s[tag=is_random] remove is_random",
+            "tag @s[tag=!ladybug] remove is_lucky_charm",
+            "tag @s[tag=use_lucky_charm] remove use_lucky_charm",
+            "tag @p[tag=is_aqua] remove is_aqua",
+            "tag @p[tag=timer_off] remove timer_off",
+            "tag @p[tag=timer_on] remove timer_on",
+            "scoreboard players set @s miraculous_timer 0"
+          ]
+        }
+      },
+      "cat_miraculous_detransform": {
+        "run_command": {
+          "command": [
+            "playsound detransform @a ~~~",
+            "ability @p[m=survival] mayfly false",
+            "clear @p miraculous:cat_miraculous",
+            "clear @p miraculous:cat_umbrella",
+            "clear @p miraculous:cat_staff",
+            "give @p[tag=adrien_cat] miraculous:camo_cat_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=marinette_cat] miraculous:marinette_camo_cat_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=zoe_cat] miraculous:zoe_camo_cat_miraculous 1 0 {\"keep_on_death\":{}}",
+            "summon miraculous:plagg",
+            "replaceitem entity @s slot.armor.head 0 air",
+            "replaceitem entity @s slot.armor.chest 0 air",
+            "replaceitem entity @s slot.armor.legs 0 air",
+            "replaceitem entity @s slot.armor.feet 0 air",
+            "clear @p[tag=is_ladybug, tag=is_cat] miraculous:bugnoire_yoyo",
+            "give @p[tag=is_ladybug, tag=is_cat] miraculous:ladybug_yoyo 1 0 {\"keep_on_death\":{}}",
+            "event entity @s[tag=is_ladybug, tag=is_cat, tag=ladybug] ladybug",
+            "event entity @s[tag=is_ladybug, tag=is_cat, tag=mister_bug] mister_bug",
+            "event entity @s[tag=is_ladybug, tag=is_cat, tag=scarabella] scarabella",
+            "event entity @s[tag=is_ladybug, tag=is_cat, tag=scarlet_lady] scarlet_lady",
+            "event entity @s[tag=is_rabbit, tag=is_cat, tag=bunnix] bunnix",
+            "event entity @s[tag=is_rabbit, tag=is_cat, tag=mini_bunnix] mini_bunnix",
+            "clear @p[tag=is_rabbit, tag=is_cat] miraculous:rabbit_noir_umbrella_closed",
+            "clear @p[tag=is_rabbit, tag=is_cat] miraculous:rabbit_noir_umbrella_open",
+            "give @p[tag=is_rabbit, tag=is_cat] miraculous:rabbit_umbrella_closed 1 0 {\"keep_on_death\":{}}",
+            "tag @p[tag=is_cat] remove is_cat",
+            "tag @p[tag=use_cataclysm] remove use_cataclysm",
+            "tag @p[tag=is_aqua] remove is_aqua",
+            "tag @p[tag=timer_off] remove timer_off",
+            "tag @p[tag=timer_on] remove timer_on",
+            "scoreboard players set @s miraculous_timer 0"
+          ]
+        }
+      },
+      "bull_miraculous_detransform": {
+        "run_command": {
+          "command": [
+            "playsound detransform @a ~~~",
+            "clear @s miraculous:bull_miraculous",
+            "clear @s miraculous:bull_mallet",
+            "give @s miraculous:camo_bull_miraculous 1 0 {\"keep_on_death\":{}}",
+            "summon miraculous:stompp",
+            "replaceitem entity @s slot.armor.head 0 air",
+            "replaceitem entity @s slot.armor.chest 0 air",
+            "replaceitem entity @s slot.armor.legs 0 air",
+            "replaceitem entity @s slot.armor.feet 0 air",
+            "tag @s[tag=is_bull] remove is_bull",
+            "tag @s[tag=resistance] remove resistance",
+            "tag @s[tag=use_resistance] remove use_resistance",
+            "tag @p[tag=is_aqua] remove is_aqua",
+            "tag @p[tag=timer_off] remove timer_off",
+            "tag @p[tag=timer_on] remove timer_on",
+            "scoreboard players set @s miraculous_timer 0"
+          ]
+        }
+      },
+      "bee_miraculous_detransform": {
+        "run_command": {
+          "command": [
+            "playsound detransform @a ~~~",
+            "clear @s miraculous:bee_miraculous",
+            "clear @s miraculous:bee_spinning_top",
+            "clear @s miraculous:venom",
+            "give @s[tag=chloe_bee] miraculous:camo_bee_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @s[tag=marinette_bee] miraculous:marinette_camo_bee_miraculous 1 0 {\"keep_on_death\":{}}",
+            "summon miraculous:pollen",
+            "replaceitem entity @s slot.armor.head 0 air",
+            "replaceitem entity @s slot.armor.chest 0 air",
+            "replaceitem entity @s slot.armor.legs 0 air",
+            "replaceitem entity @s slot.armor.feet 0 air",
+            "event entity @s[tag=is_ladybug, tag=is_bee, tag=ladybug] ladybug",
+            "event entity @s[tag=is_ladybug, tag=is_bee, tag=mister_bug] mister_bug",
+            "event entity @s[tag=is_ladybug, tag=is_bee, tag=scarabella] scarabella",
+            "event entity @s[tag=is_ladybug, tag=is_bee, tag=scarlet_lady] scarlet_lady",
+            "tag @s[tag=ladybug] add is_lucky_charm",
+            "tag @s[tag=is_bee] remove is_bee",
+            "tag @s[tag=use_venom] remove use_venom",
+            "tag @p[tag=is_aqua] remove is_aqua",
+            "tag @p[tag=timer_off] remove timer_off",
+            "tag @p[tag=timer_on] remove timer_on",
+            "scoreboard players set @s miraculous_timer 0"
+          ]
+        }
+      },
+      "dragon_miraculous_detransform": {
+        "run_command": {
+          "command": [
+            "playsound detransform @a ~~~",
+            "clear @p miraculous:dragon_miraculous",
+            "clear @p miraculous:dragon_sword",
+            "clear @p miraculous:water_dragon_sword",
+            "clear @p miraculous:wind_dragon_sword",
+            "clear @p miraculous:lightning_dragon_sword",
+            "give @p[tag=kagami_dragon] miraculous:camo_dragon_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=marinette_dragon] miraculous:marinette_camo_dragon_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=gabriel_dragon] miraculous:gabriel_camo_dragon_miraculous 1 0 {\"keep_on_death\":{}}",
+            "summon miraculous:longg",
+            "replaceitem entity @s slot.armor.head 0 air",
+            "replaceitem entity @s slot.armor.chest 0 air",
+            "replaceitem entity @s slot.armor.legs 0 air",
+            "replaceitem entity @s slot.armor.feet 0 air",
+            "event entity @s[tag=is_ladybug, tag=is_dragon, tag=ladybug] ladybug",
+            "event entity @s[tag=is_ladybug, tag=is_dragon, tag=mister_bug] mister_bug",
+            "event entity @s[tag=is_ladybug, tag=is_dragon, tag=scarabella] scarabella",
+            "event entity @s[tag=is_ladybug, tag=is_dragon, tag=scarlet_lady] scarlet_lady",
+            "tag @s[tag=ladybug] add is_lucky_charm",
+            "tag @s[tag=use_water_dragon] remove use_water_dragon",
+            "tag @s[tag=use_lightning_dragon] remove use_lightning_dragon",
+            "tag @s[tag=use_wind_dragon] remove use_wind_dragon",
+            "tag @s[tag=use_3_elements] remove use_3_elements",
+            "tag @s[tag=is_dragon] remove is_dragon",
+            "tag @s[tag=is_wind] remove is_wind",
+            "tag @s[tag=water] remove water",
+            "tag @s[tag=is_lightning] remove is_lightning",
+            "tag @s[tag=is_water] remove is_water",
+            "tag @s[tag=water_dragon] remove water_dragon",
+            "tag @s[tag=water_dragon_off] remove water_dragon_off",
+            "tag @p[tag=is_aqua] remove is_aqua",
+            "tag @p[tag=timer_off] remove timer_off",
+            "tag @p[tag=timer_on] remove timer_on",
+            "scoreboard players set @s miraculous_timer 0"
+          ]
+        }
+      },
+      "turtle_miraculous_detransform": {
+        "run_command": {
+          "command": [
+            "playsound detransform @a ~~~",
+            "replaceitem entity @s slot.armor.head 0 air",
+            "replaceitem entity @s slot.armor.chest 0 air",
+            "replaceitem entity @s slot.armor.legs 0 air",
+            "replaceitem entity @s slot.armor.feet 0 air",
+            "clear @p miraculous:turtle_miraculous",
+            "clear @p miraculous:turtle_shield",
+            "give @p[tag=nino_turtle] miraculous:camo_turtle_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=marinette_turtle] miraculous:marinette_camo_turtle_miraculous 1 0 {\"keep_on_death\":{}}",
+            "summon miraculous:wayzz",
+            "tag @p[tag=use_shell_ter] remove use_shell_ter",
+            "tag @p[tag=is_turtle] remove is_turtle",
+            "fill ~4 ~4 ~4 ~-4 ~-4 ~-4 air 1 replace miraculous:shell_ter_block",
+            "tag @p[tag=is_aqua] remove is_aqua",
+            "tag @p[tag=timer_off] remove timer_off",
+            "tag @p[tag=timer_on] remove timer_on",
+            "scoreboard players set @s miraculous_timer 0"
+          ]
+        }
+      },
+      "goat_miraculous_detransform": {
+        "run_command": {
+          "command": [
+            "playsound detransform @a ~~~",
+            "clear @p miraculous:goat_miraculous",
+            "clear @p miraculous:goat_brush",
+            "give @p miraculous:camo_goat_miraculous 1 0 {\"keep_on_death\":{}}",
+            "summon miraculous:ziggy",
+            "replaceitem entity @s slot.armor.head 0 air",
+            "replaceitem entity @s slot.armor.chest 0 air",
+            "replaceitem entity @s slot.armor.legs 0 air",
+            "replaceitem entity @s slot.armor.feet 0 air",
+            "tag @s[tag=is_goat] remove is_goat",
+            "tag @s[tag=bucket] remove bucket",
+            "tag @s[tag=spyglass] remove spyglass",
+            "tag @s[tag=shield] remove shield",
+            "tag @s[tag=shears] remove shears",
+            "tag @s[tag=fishing_rod] remove fishing_rod",
+            "tag @s[tag=flint_and_steel] remove flint_and_steel",
+            "event entity @s clear_items",
+            "tag @s[tag=use_genesis] remove use_genesis",
+            "tag @p[tag=is_aqua] remove is_aqua",
+            "tag @p[tag=timer_off] remove timer_off",
+            "tag @p[tag=timer_on] remove timer_on",
+            "scoreboard players set @s miraculous_timer 0"
+          ]
+        }
+      },
+      "tiger_miraculous_detransform": {
+        "run_command": {
+          "command": [
+            "playsound detransform @a ~~~",
+            "clear @p miraculous:tiger_miraculous",
+            "clear @p miraculous:tiger_bolas",
+            "clear @p miraculous:clout1",
+            "clear @p miraculous:clout2",
+            "clear @p miraculous:clout3",
+            "clear @p miraculous:clout4",
+            "clear @p miraculous:clout5",
+            "clear @p miraculous:clout6",
+            "give @p miraculous:camo_tiger_miraculous 1 0 {\"keep_on_death\":{}}",
+            "summon miraculous:roaar",
+            "replaceitem entity @s slot.armor.head 0 air",
+            "replaceitem entity @s slot.armor.chest 0 air",
+            "replaceitem entity @s slot.armor.legs 0 air",
+            "replaceitem entity @s slot.armor.feet 0 air",
+            "tag @s[tag=is_tiger] remove is_tiger",
+            "tag @s[tag=use_clout] remove use_clout",
+            "tag @p[tag=is_aqua] remove is_aqua",
+            "tag @p[tag=timer_off] remove timer_off",
+            "tag @p[tag=timer_on] remove timer_on",
+            "scoreboard players set @s miraculous_timer 0"
+          ]
+        }
+      },
+      "butterfly_miraculous_detransform": {
+        "run_command": {
+          "command": [
+            "playsound detransform @a ~~~",
+            "clear @p miraculous:butterfly_miraculous",
+            "clear @p miraculous:butterfly_cane",
+            "give @p miraculous:camo_butterfly_miraculous 1 0 {\"keep_on_death\":{}}",
+            "summon miraculous:nooroo",
+            "replaceitem entity @s slot.armor.head 0 air",
+            "replaceitem entity @s slot.armor.chest 0 air",
+            "replaceitem entity @s slot.armor.legs 0 air",
+            "replaceitem entity @s slot.armor.feet 0 air",
+            "event entity @s[tag=is_butterfly, tag=is_peacock] mayura",
+            "event entity @s[tag=is_butterfly, tag=is_peacock, tag=argos] argos",
+            "tag @p[tag=is_butterfly] remove is_butterfly",
+            "tag @p[tag=use_akuma] remove use_akuma",
+            "tag @p[tag=spider_akumatize] remove spider_akumatize",
+            "tag @p[tag=skeleton_akumatize] remove skeleton_akumatize",
+            "tag @p[tag=creeper_akumatize] remove creeper_akumatize",
+            "tag @p[tag=zombie_akumatize] remove zombie_akumatize",
+            "tag @p[tag=is_aqua] remove is_aqua",
+            "tag @p[tag=timer_off] remove timer_off",
+            "tag @p[tag=timer_on] remove timer_on",
+            "scoreboard players set @s miraculous_timer 0"
+          ]
+        }
+      },
+      "peacock_miraculous_detransform": {
+        "run_command": {
+          "command": [
+            "playsound detransform @a ~~~",
+            "clear @p miraculous:peacock_miraculous",
+            "clear @p miraculous:peacock_fan",
+            "clear @p miraculous:amok",
+            "give @p[tag=nathalie_peacock] miraculous:camo_peacock_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=felix_peacock] miraculous:felix_camo_peacock_miraculous 1 0 {\"keep_on_death\":{}}",
+            "summon miraculous:duusu",
+            "replaceitem entity @s slot.armor.head 0 air",
+            "replaceitem entity @s slot.armor.chest 0 air",
+            "replaceitem entity @s slot.armor.legs 0 air",
+            "replaceitem entity @s slot.armor.feet 0 air",
+            "event entity @s[tag=is_butterfly, tag=is_peacock] hawk_moth",
+            "tag @p[tag=is_peacock] remove is_peacock",
+            "tag @p[tag=use_amok] remove use_amok",
+            "tag @p[tag=is_aqua] remove is_aqua",
+            "tag @p[tag=timer_off] remove timer_off",
+            "tag @p[tag=timer_on] remove timer_on",
+            "scoreboard players set @s miraculous_timer 0"
+          ]
+        }
+      },
+      "horse_miraculous_detransform": {
+        "run_command": {
+          "command": [
+            "playsound detransform @a ~~~",
+            "clear @p miraculous:horse_miraculous",
+            "clear @s miraculous:horseshoe",
+            "give @p[tag=max_horse] miraculous:camo_horse_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=marinette_horse] miraculous:marinette_camo_horse_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=gabriel_horse] miraculous:gabriel_camo_horse_miraculous 1 0 {\"keep_on_death\":{}}",
+            "summon miraculous:kaalki",
+            "replaceitem entity @s slot.armor.head 0 air",
+            "replaceitem entity @s slot.armor.chest 0 air",
+            "replaceitem entity @s slot.armor.legs 0 air",
+            "replaceitem entity @s slot.armor.feet 0 air",
+            "event entity @s[tag=is_ladybug, tag=is_horse, tag=ladybug] ladybug",
+            "event entity @s[tag=is_ladybug, tag=is_horse, tag=mister_bug] mister_bug",
+            "event entity @s[tag=is_ladybug, tag=is_horse, tag=scarabella] scarabella",
+            "event entity @s[tag=is_ladybug, tag=is_horse, tag=scarlet_lady] scarlet_lady",
+            "event entity @e[type=miraculous:voyage_portal1] despawn",
+            "event entity @e[type=miraculous:voyage_portal2] despawn",
+            "tag @s[tag=ladybug] add is_lucky_charm",
+            "tag @s[tag=is_horse] remove is_horse",
+            "tag @s[tag=use_voyage] remove use_voyage",
+            "tag @p[tag=is_aqua] remove is_aqua",
+            "tag @p[tag=timer_off] remove timer_off",
+            "tag @p[tag=timer_on] remove timer_on",
+            "scoreboard players set @s miraculous_timer 0"
+          ]
+        }
+      },
+      "rooster_miraculous_detransform": {
+        "run_command": {
+          "command": [
+            "playsound detransform @a ~~~",
+            "clear @p miraculous:rooster_miraculous",
+            "clear @p miraculous:rooster_feather",
+            "give @p miraculous:camo_rooster_miraculous 1 0 {\"keep_on_death\":{}}",
+            "summon miraculous:orikko",
+            "replaceitem entity @s slot.armor.head 0 air",
+            "replaceitem entity @s slot.armor.chest 0 air",
+            "replaceitem entity @s slot.armor.legs 0 air",
+            "replaceitem entity @s slot.armor.feet 0 air",
+            "tag @s[tag=sublimation_fire_resistance] remove sublimation_fire_resistance",
+            "tag @s[tag=sublimation_invisibility] remove sublimation_invisibility",
+            "tag @s[tag=sublimation_speed] remove sublimation_speed",
+            "tag @s[tag=sublimation_night_vision] remove sublimation_night_vision",
+            "tag @s[tag=is_rooster] remove is_rooster",
+            "tag @s[tag=use_sublimation] remove use_sublimation",
+            "tag @p[tag=is_aqua] remove is_aqua",
+            "tag @p[tag=timer_off] remove timer_off",
+            "tag @p[tag=timer_on] remove timer_on",
+            "scoreboard players set @s miraculous_timer 0"
+          ]
+        }
+      },
+      "mouse_miraculous_detransform": {
+        "run_command": {
+          "command": [
+            "playsound detransform @a ~~~",
+            "clear @p miraculous:multinoir_jump_rope",
+            "give @p[tag=multimouse, tag=is_mouse] miraculous:mouse_jump_rope 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=polymouse, tag=is_mouse] miraculous:polymouse_jump_rope 1 0 {\"keep_on_death\":{}}",
+            "clear @p[tag=maotif] miraculous:cat_miraculous",
+            "clear @p[tag=maotif] miraculous:cat_staff",
+            "give @p[tag=maotif, tag=is_cat] miraculous:maotif_cat_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=maotif, tag=is_cat] miraculous:maotif_staff 1 0 {\"keep_on_death\":{}}",
+            "clear @p miraculous:mouse_miraculous",
+            "clear @p miraculous:mouse_jump_rope",
+            "clear @p miraculous:multinoir_jump_rope",
+            "clear @p miraculous:multibug_jump_rope",
+            "clear @p miraculous:multifox_jump_rope",
+            "clear @p miraculous:polymouse_jump_rope",
+            "give @p[tag=marinette_mouse] miraculous:camo_mouse_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=gabriel_mouse] miraculous:gabriel_camo_mouse_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=chloe_mouse] miraculous:chloe_camo_mouse_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=mylene_mouse] miraculous:mylene_camo_mouse_miraculous 1 0 {\"keep_on_death\":{}}",
+            "summon miraculous:mullo",
+            "ride @s stop_riding",
+            "kill @e [type=miraculous:multimouse_clone]",
+            "kill @e [type=miraculous:multibug_clone]",
+            "kill @e [type=miraculous:multinoir_clone]",
+            "kill @e [type=miraculous:multifox_clone]",
+            "kill @e [type=miraculous:polymouse_clone]",
+            "replaceitem entity @s slot.armor.head 0 air",
+            "replaceitem entity @s slot.armor.chest 0 air",
+            "replaceitem entity @s slot.armor.legs 0 air",
+            "replaceitem entity @s slot.armor.feet 0 air",
+            "event entity @s[tag=is_mouse, tag=is_ladybug, tag=ladybug] ladybug",
+            "event entity @s[tag=is_ladybug, tag=is_mouse, tag=mister_bug] mister_bug",
+            "event entity @s[tag=is_ladybug, tag=is_mouse, tag=scarabella] scarabella",
+            "event entity @s[tag=is_ladybug, tag=is_mouse, tag=scarlet_lady] scarlet_lady",
+            "event entity @s[tag=is_fox, tag=is_mouse, tag=fox_trot] fox_trot",
+            "event entity @s[tag=is_fox, tag=is_mouse, tag=rena_rouge] rena_rouge",
+            "event entity @s[tag=is_cat, tag=is_mouse, tag=cat_noir] cat_noir",
+            "event entity @s[tag=is_cat, tag=is_mouse, tag=lady_noire] lady_noire",
+            "event entity @s[tag=is_cat, tag=is_mouse, tag=cat_walker] cat_walker",
+            "event entity @s[tag=is_cat, tag=is_mouse, tag=maotif] maotif",
+            "event entity @s[tag=is_mouse, tag=is_cat, tag=multimouse, tag=!is_multitude] multimouse",
+            "event entity @s[tag=is_mouse, tag=is_cat, tag=polymouse, tag=!is_multitude] polymouse",
+            "event entity @s[tag=is_multitude, tag=multimouse] multimouse_multitude",
+            "event entity @s[tag=is_multitude, tag=polymouse] polymouse_multitude",
+            "tag @s[tag=ladybug] add is_lucky_charm",
+            "tag @s[tag=is_mouse] remove is_mouse",
+            "tag @s[tag=use_multitude] remove use_multitude",
+            "tag @s[tag=is_multitude] remove is_multitude",
+            "effect @p[tag=!is_multitude] invisibility 0",
+            "tag @p[tag=is_aqua] remove is_aqua",
+            "tag @p[tag=timer_off] remove timer_off",
+            "tag @p[tag=timer_on] remove timer_on",
+            "scoreboard players set @s miraculous_timer 0"
+          ]
+        }
+      },
+      "fox_miraculous_detransform": {
+        "run_command": {
+          "command": [
+            "playsound detransform @a ~~~",
+            "clear @p miraculous:multinoir_jump_rope",
+            "give @p[tag=multimouse, tag=is_mouse] miraculous:mouse_jump_rope 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=polymouse, tag=is_mouse] miraculous:polymouse_jump_rope 1 0 {\"keep_on_death\":{}}",
+            "replaceitem entity @s slot.armor.head 0 air",
+            "replaceitem entity @s slot.armor.chest 0 air",
+            "replaceitem entity @s slot.armor.legs 0 air",
+            "replaceitem entity @s slot.armor.feet 0 air",
+            "clear @p miraculous:multinoir_jump_rope",
+            "event entity @s[tag=is_mouse, tag=is_cat, tag=multimouse, tag=!is_multitude] multimouse",
+            "event entity @s[tag=is_mouse, tag=is_cat, tag=polymouse, tag=!is_multitude] polymouse",
+            "event entity @s[tag=is_multitude, tag=multimouse] multimouse_multitude",
+            "event entity @s[tag=is_multitude, tag=polymouse] polymouse_multitude",
+            "clear @p miraculous:fox_miraculous",
+            "clear @p miraculous:fox_flute",
+            "clear @p miraculous:mirage_skeleton_flute",
+            "clear @p miraculous:mirage_zombie_flute",
+            "clear @p miraculous:mirage_creeper_flute",
+            "clear @p miraculous:rena_furtive_fox_miraculous",
+            "clear @p miraculous:rena_furtive_flute",
+            "clear @p miraculous:rena_furtive_mirage_skeleton_flute",
+            "clear @p miraculous:rena_furtive_mirage_zombie_flute",
+            "clear @p miraculous:rena_furtive_mirage_creeper_flute",
+            "give @p[tag=alya_fox] miraculous:camo_fox_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=gabriel_fox] miraculous:gabriel_camo_fox_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=marinette_fox] miraculous:marinette_camo_fox_miraculous 1 0 {\"keep_on_death\":{}}",
+            "summon miraculous:trixx",
+            "kill @e[family=mirage]",
+            "tag @p[tag=is_fox] remove is_fox",
+            "tag @s[tag=use_mirage] remove use_mirage",
+            "tag @p[tag=is_aqua] remove is_aqua",
+            "tag @p[tag=timer_off] remove timer_off",
+            "tag @p[tag=timer_on] remove timer_on",
+            "scoreboard players set @s miraculous_timer 0"
+          ]
+        }
+      },
+      "lucky_charm_speak": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§4<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:lucky_charm\"}]}",
+            "playsound lucky_charm @a ~~~"
+          ]
+        }
+      },
+      "clear_lucky_charm": {
+        "run_command": {
+          "command": [
+            "clear @s miraculous:lucky_charm_sword",
+            "clear @s miraculous:lucky_charm_axe",
+            "clear @s miraculous:lucky_charm_shovel",
+            "clear @s miraculous:lucky_charm_hoe",
+            "clear @s miraculous:lucky_charm_mace",
+            "clear @s miraculous:lucky_charm_flint_and_steel",
+            "clear @s miraculous:lucky_charm_hammer",
+            "clear @s miraculous:lucky_charm_pickaxe"
+          ]
+        }
+      },
+      "clear_items": {
+        "run_command": {
+          "command": [
+            "clear @s minecraft:bucket 0 1",
+            "clear @s minecraft:spyglass 0 1",
+            "clear @s minecraft:shield 0 1",
+            "clear @s minecraft:shears 0 1",
+            "clear @s minecraft:fishing_rod 0 1",
+            "clear @s minecraft:flint_and_steel 0 1"
+          ]
+        }
+      },
+      "clear_clout": {
+        "run_command": {
+          "command": [
+            "clear @s minecraft:clout1",
+            "clear @s minecraft:clout2",
+            "clear @s minecraft:clout3",
+            "clear @s minecraft:clout4",
+            "clear @s minecraft:clout5",
+            "clear @s minecraft:clout6"
+          ]
+        }
+      },
+      "summon_hovercraft": {
+        "run_command": {
+          "command": [
+            "summon miraculous:hovercraft_lucky_charm ~ ~10 ~"
+          ]
+        }
+      },
+      "summon_motorcycle": {
+        "run_command": {
+          "command": [
+            "summon miraculous:motorcycle_lucky_charm ~ ~10 ~"
+          ]
+        }
+      },
+      "summon_lamborghini": {
+        "run_command": {
+          "command": [
+            "summon miraculous:lamborghini_lucky_charm ~ ~10 ~"
+          ]
+        }
+      },
+      "summon_plane": {
+        "run_command": {
+          "command": [
+            "summon miraculous:plane_lucky_charm ~ ~10 ~"
+          ]
+        }
+      },
+      "wind_dragon": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§f<\"},{\"selector\":\"@s\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:wind_dragon\"}]}",
+            "clear @s miraculous:dragon_sword",
+            "clear @s miraculous:wind_dragon_sword",
+            "clear @s miraculous:water_dragon_sword",
+            "clear @s miraculous:lightning_dragon_sword",
+            "give @s miraculous:wind_dragon_sword 1 0 {\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "lightning_dragon": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§6<\"},{\"selector\":\"@s\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:lightning_dragon\"}]}",
+            "clear @s miraculous:dragon_sword",
+            "clear @s miraculous:wind_dragon_sword",
+            "clear @s miraculous:water_dragon_sword",
+            "clear @s miraculous:lightning_dragon_sword",
+            "give @s miraculous:lightning_dragon_sword 1 0 {\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "water_dragon": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§3<\"},{\"selector\":\"@s\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:water_dragon\"}]}",
+            "clear @s miraculous:dragon_sword",
+            "clear @s miraculous:wind_dragon_sword",
+            "clear @s miraculous:water_dragon_sword",
+            "clear @s miraculous:lightning_dragon_sword",
+            "give @s miraculous:water_dragon_sword 1 0 {\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "lucky_charm": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.chest 0 miraculous:lucky_charm_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:lucky_charm_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:lucky_charm_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "ladybug": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:ladybug_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:ladybug_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:ladybug_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:ladybug_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "aquabug": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:aquabug_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:aquabug_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:aquabug_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:aquabug_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "ladyice": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:ladyice_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:ladyice_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:ladyice_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:ladyice_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "cosmobug": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:cosmobug_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:cosmobug_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:cosmobug_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:cosmobug_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "mister_bug": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:ladybug_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:mister_bug_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:mister_bug_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:mister_bug_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "aqua_mister_bug": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:aquabug_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:aqua_mister_bug_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:aqua_mister_bug_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:aqua_mister_bug_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "mister_ice": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:mister_ice_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:mister_ice_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:mister_ice_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:mister_ice_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "astrobug": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:cosmobug_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:astrobug_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:astrobug_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:astrobug_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "scarabella": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:scarabella_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:scarabella_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:scarabella_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:scarabella_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "aquabella": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:aquabella_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:aquabella_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:aquabella_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+
+            "replaceitem entity @p slot.armor.feet 0 miraculous:aquabella_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "frozerbella": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:frozerbella_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:frozerbella_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:frozerbella_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:frozerbella_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "cosmobella": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:cosmobug_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:cosmobella_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:cosmobella_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:cosmobella_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "scarlet_lady": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:scarlet_lady_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:scarlet_lady_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:scarlet_lady_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:scarlet_lady_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "scarlet_siren": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:scarlet_siren_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:scarlet_siren_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:scarlet_siren_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:scarlet_siren_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "scarlet_skater": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:scarlet_skater_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:scarlet_skater_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:scarlet_skater_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:scarlet_skater_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "scarlet_star": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:scarlet_star_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:scarlet_star_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:scarlet_star_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:scarlet_star_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "cat_noir": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§a<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:plagg_claws_out\"}]}",
+            "replaceitem entity @p slot.armor.head 0 miraculous:cat_noir_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:cat_noir_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:cat_noir_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:cat_noir_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "aqua_noir": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§a<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:astro_plagg_claws_out\"}]}",
+            "replaceitem entity @p slot.armor.head 0 miraculous:cat_noir_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:aqua_noir_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:cat_noir_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:aqua_noir_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "ice_noir": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§a<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:astro_plagg_claws_out\"}]}",
+            "replaceitem entity @p slot.armor.head 0 miraculous:cat_noir_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:ice_noir_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:ice_noir_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:ice_noir_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "astrocat": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§a<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:astro_plagg_claws_out\"}]}",
+            "replaceitem entity @p slot.armor.head 0 miraculous:astrocat_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:astrocat_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:astrocat_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:astrocat_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "lady_noire": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§a<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:plagg_claws_out\"}]}",
+            "replaceitem entity @p slot.armor.head 0 miraculous:lady_noire_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:lady_noire_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:lady_noire_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:lady_noire_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "aqua_lady": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§a<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:astro_plagg_claws_out\"}]}",
+            "replaceitem entity @p slot.armor.head 0 miraculous:lady_noire_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:aqua_lady_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:lady_noire_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:aqua_lady_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "ice_noire": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§a<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:astro_plagg_claws_out\"}]}",
+            "replaceitem entity @p slot.armor.head 0 miraculous:ice_noire_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:ice_noire_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:ice_noire_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:ice_noire_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "lady_galaxy": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§a<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:astro_plagg_claws_out\"}]}",
+            "replaceitem entity @p slot.armor.head 0 miraculous:astrocat_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:lady_galaxy_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:lady_galaxy_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:lady_galaxy_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "cat_walker": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§a<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:plagg_claws_out\"}]}",
+            "replaceitem entity @p slot.armor.head 0 miraculous:cat_noir_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:cat_walker_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:cat_walker_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:cat_walker_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "aqua_cat_walker": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§a<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:astro_plagg_claws_out\"}]}",
+            "replaceitem entity @p slot.armor.head 0 miraculous:cat_noir_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:aqua_cat_walker_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:cat_walker_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:aqua_cat_walker_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "icy_walker": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§a<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:astro_plagg_claws_out\"}]}",
+            "replaceitem entity @p slot.armor.head 0 miraculous:cat_noir_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:icy_walker_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:icy_walker_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:icy_walker_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "astro_walker": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§a<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:astro_plagg_claws_out\"}]}",
+            "replaceitem entity @p slot.armor.head 0 miraculous:astrocat_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:astro_walker_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:astro_walker_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:astro_walker_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "maotif": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§b<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:plagg_claws_out\"}]}",
+            "replaceitem entity @p slot.armor.head 0 miraculous:maotif_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:maotif_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:maotif_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:maotif_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "shui_mao": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§b<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:plagg_claws_out\"}]}",
+            "replaceitem entity @p slot.armor.head 0 miraculous:maotif_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:shui_mao_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:maotif_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:shui_mao_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "bing_mao": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§b<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:plagg_claws_out\"}]}",
+            "replaceitem entity @p slot.armor.head 0 miraculous:bing_mao_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:bing_mao_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:bing_mao_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:bing_mao_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "xing_mao": {
+        "run_command": {
+          "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§b<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:plagg_claws_out\"}]}",
+            "replaceitem entity @p slot.armor.head 0 miraculous:xing_mao_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:xing_mao_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:xing_mao_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:xing_mao_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "minotaurox": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:minotaurox_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:minotaurox_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_minotaurox_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:minotaurox_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:minotaurox_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_minotaurox_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "bugnoire": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:bugnoire_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:bugnoire_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:bugnoire_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:bugnoire_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "mini_bunnix": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:mini_bunnix_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:mini_bunnix_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_bunnix_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:mini_bunnix_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:bunnix_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_bunnix_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "bunnix": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:bunnix_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:bunnix_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_bunnix_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:bunnix_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:bunnix_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_bunnix_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "rabbit_noir": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:rabbit_noir_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:rabbit_noir_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:rabbit_noir_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:rabbit_noir_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "king_monkey": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:king_monkey_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:king_monkey_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_king_monkey_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:king_monkey_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:king_monkey_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_king_monkey_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "queen_bee": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:queen_bee_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:queen_bee_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_queen_bee_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:queen_bee_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:queen_bee_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_queen_bee_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "vesperia": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:vesperia_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:vesperia_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_vesperia_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:vesperia_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:vesperia_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_vesperia_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "marigold": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:marigold_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:marigold_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:marigold_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:marigold_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "maribubble": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:marigold_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:maribubble_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:maribubble_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:maribubble_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "ladybee": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:ladybee_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:ladybee_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:ladybee_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:ladybee_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "majestia": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.chest 0 miraculous:majestia_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:majestia_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:majestia_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "knightowl": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:knightowl_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:knightowl_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:knightowl_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:knightowl_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "sparrow": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:sparrow_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:sparrow_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:sparrow_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:sparrow_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "ryuko_scarlet_lady": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:ryuko_scarlet_lady_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:ryuko_scarlet_lady_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_ryuko_scarlet_lady_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:ryuko_scarlet_lady_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:ryuko_scarlet_lady_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_ryuko_scarlet_lady_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "ryuko": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:ryuko_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:ryuko_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_ryuko_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:ryuko_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:ryuko_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_ryuko_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "dragonbug": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:dragonbug_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:dragonbug_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:dragonbug_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:dragonbug_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "carapace": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:carapace_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:carapace_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_carapace_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:carapace_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:carapace_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_carapace_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "jade_turtle": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:jade_turtle_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:jade_turtle_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_jade_turtle_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:jade_turtle_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:jade_turtle_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_jade_turtle_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "koki_marina": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:koki_marina_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:koki_marina_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_koki_marina_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:koki_marina_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:koki_marina_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_koki_marina_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "pigella": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:pigella_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:pigella_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_pigella_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:pigella_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:pigella_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_pigella_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "caprikid": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:caprikid_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:caprikid_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_caprikid_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:caprikid_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:caprikid_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_caprikid_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "purple_tigress": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:purple_tigress_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:purple_tigress_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_purple_tigress_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:purple_tigress_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:purple_tigress_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_purple_tigress_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "mayura": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:mayura_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:mayura_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_mayura_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:mayura_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:mayura_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_mayura_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "argos": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:argos_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:argos_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_argos_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:argos_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:argos_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_argos_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "hawk_moth": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:hawk_moth_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:hawk_moth_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_hawk_moth_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:hawk_moth_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:hawk_moth_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_hawk_moth_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "shadow_moth": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:shadow_moth_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:shadow_moth_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:shadow_moth_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:shadow_moth_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "shadow_noir": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:shadow_noir_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:shadow_noir_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:shadow_noir_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:shadow_noir_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "miss_hound": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:miss_hound_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:miss_hound_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_miss_hound_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:miss_hound_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:miss_hound_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_miss_hound_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "aspik": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:aspik_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:aspik_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_aspik_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:aspik_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:aspik_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_aspik_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "viperion": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:viperion_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:viperion_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_viperion_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:viperion_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:viperion_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_viperion_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "snake_noir": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:snake_noir_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:snake_noir_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:snake_noir_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:snake_noir_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "pegasus": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:pegasus_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:pegasus_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_pegasus_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:pegasus_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:pegasus_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_pegasus_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "pegasus_scarlet_lady": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:pegasus_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:pegasus_scarlet_lady_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_pegasus_scarlet_lady_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:pegasus_scarlet_lady_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:pegasus_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_pegasus_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "pegabug": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:pegabug_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:pegabug_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:pegabug_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:pegabug_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "rooster_bold": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:rooster_bold_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:rooster_bold_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_rooster_bold_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:rooster_bold_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:rooster_bold_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_rooster_bold_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "rooster_bold_invisibility": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:rooster_bold_invisibility_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:rooster_bold_invisibility_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:rooster_bold_invisibility_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:rooster_bold_invisibility_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "eagle": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:eagle_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:eagle_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_eagle_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:eagle_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:eagle_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_eagle_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "rena_rouge": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:rena_rouge_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:rena_rouge_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_rena_rouge_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:rena_rouge_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:rena_rouge_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_rena_rouge_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "fox_trot": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:fox_trot_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:fox_trot_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_fox_trot_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:fox_trot_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:fox_trot_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_fox_trot_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "rena_furtive": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:rena_furtive_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:rena_furtive_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_rena_furtive_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:rena_furtive_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:rena_furtive_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_rena_furtive_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "multimouse": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:multimouse_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:multimouse_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_multimouse_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:multimouse_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:multimouse_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_multimouse_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "multibug": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:multibug_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:multibug_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:multibug_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:multibug_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "multinoir": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:multinoir_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:multinoir_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:multinoir_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:multinoir_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "multifox": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:multifox_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:multifox_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:multifox_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:multifox_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "polymouse": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:polymouse_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:polymouse_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.chest 0 miraculous:aqua_polymouse_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:polymouse_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:polymouse_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p[tag=is_aqua] slot.armor.feet 0 miraculous:aqua_polymouse_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "multimouse_multitude": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:multimouse_multitude_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:multimouse_multitude_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:multimouse_multitude_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:multimouse_multitude_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "multibug_multitude": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:multibug_multitude_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:multibug_multitude_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:multibug_multitude_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:multibug_multitude_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "multinoir_multitude": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:multinoir_multitude_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:multinoir_multitude_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:multinoir_multitude_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:multinoir_multitude_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "multifox_multitude": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:multifox_multitude_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:multifox_multitude_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:multifox_multitude_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:multifox_multitude_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "polymouse_multitude": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @p slot.armor.head 0 miraculous:polymouse_multitude_mask 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.chest 0 miraculous:polymouse_multitude_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.legs 0 miraculous:polymouse_multitude_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}",
+            "replaceitem entity @p slot.armor.feet 0 miraculous:polymouse_multitude_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}"
+          ]
+        }
+      },
+      "minecraft:gain_bad_omen": {
+        "add": {
+          "component_groups": [
+            "minecraft:add_bad_omen"
+          ]
+        }
+      },
+      "minecraft:clear_add_bad_omen": {
+        "remove": {
+          "component_groups": [
+            "minecraft:add_bad_omen"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:clear_bad_omen_spell_effect"
+          ]
+        }
+      },
+      "minecraft:trigger_raid": {
+        "add": {
+          "component_groups": [ "minecraft:raid_trigger" ]
+        }
+      },
+      "minecraft:remove_raid_trigger": {
+        "remove": {
+          "component_groups": [ "minecraft:raid_trigger" ]
+        }
+      }
+    }
+  }
+}

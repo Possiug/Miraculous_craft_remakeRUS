@@ -1,0 +1,18 @@
+{
+  "resource_pack_name": "vanilla",
+  "texture_name": "atlas.terrain",
+  "padding": 8,
+  "num_mip_levels": 4,
+  "texture_data": {
+    "shell_ter_block": {
+      "textures": [
+        "textures/blocks/shell_ter_block"
+      ]
+    },
+    "ani_water_dragon_block": {
+      "textures": [
+        "textures/blocks/water_dragon_block"
+      ]
+    }
+  }
+}

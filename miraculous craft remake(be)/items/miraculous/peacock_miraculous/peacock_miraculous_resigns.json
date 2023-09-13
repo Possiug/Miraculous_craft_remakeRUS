@@ -1,0 +1,57 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:item": {
+        "description": {
+            "identifier": "miraculous:peacock_miraculous_resigns",
+            "category": "Equipment"
+        },
+        "components": {
+            "minecraft:icon": {
+                "texture": "peacock_miraculous"
+            },
+            "minecraft:creative_category": {
+                "parent": "itemGroup.name.miraculous"
+            },
+            "minecraft:max_stack_size": 1,
+            "minecraft:hand_equipped": true,
+            "minecraft:display_name": {},
+            "minecraft:on_use": {
+                "on_use": {
+                    "event": "event:miraculous"
+                }
+            },
+            "minecraft:use_duration": 0,
+            "minecraft:cooldown": {
+                "category": "select",
+                "duration": 1
+            }
+        },
+    "events": {
+		"event:miraculous": {
+		"sequence": [
+		{
+		"trigger": {
+		"target": "self",
+		"event": "miraculous:peacock"
+		},
+		"condition": "!query.is_sneaking"
+		}
+	]
+	},
+	"miraculous:peacock": {
+		"run_command": {
+		"command": [
+		    "gamerule sendcommandfeedback false",
+		    "clear @s miraculous:peacock_miraculous_resigns",
+		    "tag @s[tag=!felix_peacock] add nathalie_peacock",
+		    "tag @s[tag=!argos] add mayura",
+		    "give @s[tag=nathalie_peacock] miraculous:camo_peacock_miraculous 1 0 {\"keep_on_death\":{}}",
+		    "give @s[tag=felix_peacock] miraculous:felix_camo_peacock_miraculous 1 0 {\"keep_on_death\":{}}",
+		    "summon miraculous:duusu",
+		    "playsound mini_box @a ~~~"
+      ]
+    }
+   }
+  }
+ }
+}

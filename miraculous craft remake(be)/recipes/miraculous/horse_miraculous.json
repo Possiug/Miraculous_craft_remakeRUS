@@ -1,0 +1,46 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "horse_miraculous"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "ABC",
+      "DED",
+      "CFA"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:glass",
+        "data": 0
+      },
+      "B": {
+        "item": "minecraft:dye",
+        "data": 12
+      },
+      "C": {
+        "item": "minecraft:iron_ingot",
+        "data": 0
+      },
+      "D": {
+        "item": "minecraft:apple",
+        "data": 0
+      },
+      "E": {
+        "item": "minecraft:diamond",
+        "data": 0
+      },
+      "F": {
+        "item": "minecraft:dye",
+        "data": 16
+      }
+    },
+    "result": {
+      "item": "miraculous:horse_miraculous_resigns",
+      "count": 1
+    }
+  }
+}

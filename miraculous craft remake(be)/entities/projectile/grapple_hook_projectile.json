@@ -1,0 +1,112 @@
+{
+	"format_version": "1.17.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "miraculous:grapple_hook_projectile",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false,
+			"runtime_identifier": "minecraft:egg"
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"width": 0.15,
+				"height": 0.15
+			},
+			"minecraft:projectile": {
+				"power": 4,
+				"gravity": 0.03,
+				"uncertaintyBase": 0,
+				"uncertaintyMultiplier": 0,
+				"anchor": 1,
+				"shouldbounce": true,
+				"offset": [
+					0,
+					0.1,
+					0
+				],
+				"on_hit": {
+					"stick_in_ground": {
+						"shake_time": 0
+					}
+				},
+				"liquid_inertia": 1
+			},
+			"minecraft:physics": {},
+			"minecraft:timer": {
+				"looping": true,
+				"time": 15,
+				"time_down_event": {
+					"event": "transmit_despawn"
+				}
+			}
+		},
+		"component_groups": {
+			"yoyo_seat": {
+				"minecraft:spawn_entity": {
+					"entities": [
+						{
+							"should_leash": true,
+							"num_to_spawn": 1,
+							"min_wait_time": 0,
+							"max_wait_time": 0,
+							"spawn_entity": "miraculous:projectile_seat",
+							"single_use": true
+						}
+					]
+				},
+				"minecraft:environment_sensor": {
+					"triggers": [
+						{
+							"event": "start_retract",
+							"filters": {
+								"test": "on_ground",
+								"value": true
+							}
+						},
+						{
+							"filters": {
+								"test": "in_lava",
+								"value": true
+							},
+							"event": "transmit_despawn"
+						}
+					]
+				}
+			}
+		},
+		"events": {
+			"yoyo_seat": {
+				"add": {
+					"component_groups": [
+						"yoyo_seat"
+					]
+				}
+			},
+			"start_retract": {
+				"run_command": {
+					"command": [
+						"execute @e[type=miraculous:projectile_seat,c=1,tag=!\"projectile_retract\"]  ~~~ ride @p start_riding @e[type=miraculous:projectile_seat2,c=1,tag=!\"projectile_retract\"] teleport_ride",
+						"execute @e[type=miraculous:projectile_seat,c=1,tag=!\"projectile_retract\"]  ~~~ ride @e[type=miraculous:projectile_seat2,c=1,tag=!\"projectile_retract\"] start_riding @s teleport_ride",
+						"execute @e[type=miraculous:projectile_seat,c=1,tag=!\"projectile_retract\"]  ~~~ effect @s levitation 0 0 true",
+						"tag @e[type=miraculous:projectile_seat,c=1,tag=!\"projectile_retract\"] add projectile_retract",
+						"tag @e[type=miraculous:projectile_seat2,c=1,tag=!\"projectile_retract\"] add projectile_retract"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"yoyo_seat"
+					]
+				}
+			},
+			"transmit_despawn": {
+				"run_command": {
+					"command": [
+						"tag @e[type=miraculous:projectile_seat,c=1,r=4] add despawn",
+						"tag @e[type=miraculous:projectile_seat2,c=1,r=4] add despawn"
+					]
+				}
+			}
+		}
+	}
+}

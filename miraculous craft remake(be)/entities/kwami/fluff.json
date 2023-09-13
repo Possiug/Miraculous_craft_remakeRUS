@@ -1,0 +1,340 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "miraculous:fluff",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+	},
+	    "component_groups": {
+	    "aqua_fluff": {
+		  "minecraft:transformation": {
+		    "into": "miraculous:aqua_fluff",
+		    "drop_inventory": true
+		  }
+		},
+		"power_short": {
+		  "minecraft:input_ground_controlled": {},
+		  "minecraft:timer": {
+		    "time": 140,
+		    "time_down_event": {
+		      "event": "power_empty"
+		    }
+		  },
+		  "minecraft:is_ignited": {}
+		},
+		"power_long": {
+		  "minecraft:input_ground_controlled": {},
+		  "minecraft:timer": {
+		    "time": 850,
+		    "time_down_event": {
+		      "event": "power_empty"
+		    }
+		  },
+		  "minecraft:is_ignited": {}
+		}
+    },
+	"components": {
+		"minecraft:type_family": {
+		  "family": [
+		    "kwami"
+		  ]
+		},
+		"minecraft:interact": {
+		  "interactions": [
+		{
+		  "on_interact": {
+		    "filters": {
+			  "all_of": [
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_cat" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_ladybug" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_bee" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_turtle" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_fox" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_peacock" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_butterfly" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_horse" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_dragon" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_snake" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_tiger" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_mouse" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_pig" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_goat" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_rooster" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_bull" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_dog" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_monkey" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_rabbit" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_eagle" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_aqua" },
+			    { "test": "is_owner", "subject": "player" },
+			    {
+			    "any_of": [
+			    { "test": "has_equipment", "subject": "player", "domain": "hand", "value": "miraculous:camo_rabbit_miraculous" },
+			    { "test": "has_equipment", "subject": "player", "domain": "hand", "value": "miraculous:marinette_camo_rabbit_miraculous" },
+			    { "test": "has_equipment", "subject": "player", "domain": "hand", "value": "miraculous:gabriel_camo_rabbit_miraculous" }
+			    ]},
+			    { "test": "is_variant", "subject": "self", "value": "0" },
+			    { "test": "is_sneaking", "subject": "other", "operator": "=", "value": "false" }
+			  ]
+			},
+			"event": "is_rabbit_transformation"
+		  },
+		  "interact_text": "action.interact.transform",
+		  "use_item": true
+		},
+	    {
+		  "on_interact": {
+		    "filters": {
+			  "all_of": [
+			    { "test": "is_sneaking", "subject": "player" },
+			    {
+			    "any_of": [
+			    { "test": "has_equipment", "subject": "player", "domain": "hand", "value": "miraculous:camo_rabbit_miraculous" },
+			    { "test": "has_equipment", "subject": "player", "domain": "hand", "value": "miraculous:marinette_camo_rabbit_miraculous" },
+			    { "test": "has_equipment", "subject": "player", "domain": "hand", "value": "miraculous:gabriel_camo_rabbit_miraculous" }
+			    ]}
+			  ]
+			},
+			"event": "rabbit_miraculous_resigns"
+		  },
+		  "interact_text": "action.interact.renounce",
+		  "use_item": true
+		},
+	    {
+		  "on_interact": {
+		    "filters": {
+			  "all_of": [
+			    { "test": "is_owner", "subject": "player" },
+			    { "test": "has_equipment", "subject": "player", "domain": "hand", "value": "miraculous:aqua_potion" }
+			  ]
+			},
+			"event": "become_aqua_fluff"
+		  },
+		  "interact_text": "action.interact.power.up",
+		  "use_item": true
+		},
+	    {
+		  "on_interact": {
+		    "filters": {
+			  "all_of": [
+			    { "test": "has_tag", "subject": "other", "operator": "=", "value": "is_cat" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_ladybug" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_bee" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_turtle" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_fox" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_peacock" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_butterfly" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_horse" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_dragon" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_snake" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_tiger" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_mouse" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_pig" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_goat" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_rooster" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_bull" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_dog" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_monkey" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_rabbit" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_eagle" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_aqua" },
+			    { "test": "is_owner", "subject": "player" },
+			    {
+			    "any_of": [
+			    { "test": "has_equipment", "subject": "player", "domain": "hand", "value": "miraculous:camo_rabbit_miraculous" },
+			    { "test": "has_equipment", "subject": "player", "domain": "hand", "value": "miraculous:marinette_camo_rabbit_miraculous" },
+			    { "test": "has_equipment", "subject": "player", "domain": "hand", "value": "miraculous:gabriel_camo_rabbit_miraculous" }
+			    ]},
+			    { "test": "is_variant", "subject": "self", "value": "0" },
+			    { "test": "is_sneaking", "subject": "other", "operator": "=", "value": "false" }
+			  ]
+			},
+			"event": "is_rabbit_cat"
+		  },
+		  "interact_text": "action.interact.unify",
+		  "use_item": true
+		    }
+		  ]
+		},
+		"minecraft:health": {
+		  "value": 5000,
+		  "max": 5000
+		},
+		"minecraft:collision_box": {
+		  "width": 0.6,
+		  "height": 0.8
+		},
+		"minecraft:physics": {},
+		"minecraft:is_stackable": {},
+		"minecraft:pushable": {
+		  "is_pushable": true,
+		  "is_pushable_by_piston": true
+		},
+      "minecraft:movement": {
+        "value": 0.25
+      },
+      "minecraft:fall_damage": {
+        "value": 0.0
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.mount_pathing": {
+        "priority": 2,
+        "speed_multiplier": 1.5,
+        "target_dist": 0.0,
+        "track_target": true
+      },
+      "minecraft:behavior.tempt": {
+        "priority": 4,
+        "speed_multiplier": 1.0,
+        "items": [
+          "miraculous:camo_rabbit_miraculous",
+          "miraculous:marinette_camo_rabbit_miraculous",
+          "miraculous:gabriel_camo_rabbit_miraculous",
+          "carrot"
+        ]
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 1.0
+        },
+      "minecraft:equip_item": {},
+      "minecraft:tameable": {
+        "probability": 1,
+        "tameItems": [
+          "carrot"
+        ],
+        "tame_event": {
+          "event": "minecraft:on_tame",
+          "target": "self"
+        }
+      },
+      "minecraft:behavior.follow_owner": {
+        "start_distance": 10.0,
+        "speed_multiplier": 1.0,
+        "stop_distance": 2.0,
+        "priority": 6
+      },
+		"minecraft:behavior.player_ride_tamed": {},
+		"minecraft:conditional_bandwidth_optimization": {
+		  "default_values": {
+			"max_optimized_distance": 60,
+			"max_dropped_ticks": 20,
+			"use_motion_prediction_hints": true
+		  },
+		  "conditional_values": [
+		    {
+			"max_optimized_distance": 0,
+			"max_dropped_ticks": 0,
+			  "conditional_values": [
+			    {
+					"test": "is_moving",
+					"subject": "self",
+					"operator": "==",
+					"value": true
+			    }
+			  ]
+		    }
+		  ]
+		}
+	},
+	"events": {
+	    "become_aqua_fluff": {
+				"sequence": [
+					{
+                   "add": {
+							"component_groups": [
+								"aqua_fluff"
+							]
+						}
+					},
+					{
+                "run_command": {
+                  "command": [
+                    "tellraw @a {\"rawtext\":[{\"text\":\"§f<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:power_up\"}]}",
+                    "playsound powerup @a ~~~"
+							]
+						}
+					}
+				]
+			},
+       "is_rabbit_transformation": {
+        "run_command": {
+            "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§b<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:fluff_clockwise\"}]}",
+            "gamerule sendcommandfeedback false",
+            "playsound clockwise @a ~~~",
+			"tag @p add transforming",
+            "clear @p[tag=transforming] miraculous:camo_rabbit_miraculous",
+            "clear @p[tag=transforming] miraculous:marinette_camo_rabbit_miraculous",
+            "clear @p[tag=transforming] miraculous:gabriel_camo_rabbit_miraculous",
+            "kill @s [type=miraculous:fluff]",
+            "event entity @p[tag=bunnix,tag=transforming] bunnix",
+            "event entity @p[tag=mini_bunnix,tag=transforming] mini_bunnix",
+            "give @p[tag=transforming] miraculous:rabbit_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=transforming] miraculous:rabbit_umbrella_closed 1 0 {\"keep_on_death\":{}}",
+            "tag @p[tag=transforming] add is_rabbit",
+			"tag @p remove transforming"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "instant_despawn"
+	  ]
+	}
+      },
+      "rabbit_miraculous_resigns": {
+        "run_command": {
+            "command": [
+            "gamerule sendcommandfeedback false",
+            "playsound miracle_box_enter @a ~~~",
+            "clear @p miraculous:camo_rabbit_miraculous",
+            "clear @p miraculous:marinette_camo_rabbit_miraculous",
+            "clear @p miraculous:gabriel_camo_rabbit_miraculous",
+            "give @p miraculous:rabbit_miraculous_resigns 1 0 {\"keep_on_death\":{}}",
+            "kill @s [type=miraculous:fluff]"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "instant_despawn"
+			]
+		  }
+	    },
+      "is_rabbit_cat": {
+        "run_command": {
+            "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§b<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:plagg_fluff_unify\"}]}",
+            "gamerule sendcommandfeedback false",
+            "playsound clockwise @a ~~~",
+			"tag @p add transforming",
+            "clear @p[tag=transforming] miraculous:camo_rabbit_miraculous",
+            "clear @p[tag=transforming] miraculous:marinette_camo_rabbit_miraculous",
+            "clear @p[tag=transforming] miraculous:gabriel_camo_rabbit_miraculous",
+            "kill @s [type=miraculous:fluff]",
+            "event entity @p[tag=transforming] rabbit_noir",
+            "give @p[tag=transforming] miraculous:rabbit_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=transforming] miraculous:rabbit_noir_umbrella_closed 1 0 {\"keep_on_death\":{}}",
+            "tag @p[tag=transforming] add is_rabbit",
+			"tag @p remove transforming"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "instant_despawn"
+	]
+        }
+      }
+    }
+  }
+}

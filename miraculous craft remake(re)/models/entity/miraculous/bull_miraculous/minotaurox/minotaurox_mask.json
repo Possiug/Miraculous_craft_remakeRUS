@@ -1,0 +1,28 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.minotaurox_mask",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "head",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4, 24, -4], "size": [8, 8, 8], "inflate": 0.1, "pivot": [0, 32.5, 0], "rotation": [180, 0, -180], "uv": [0, 0]},
+						{"origin": [-7.93185, 30.01764, -2], "size": [4, 1, 1], "inflate": 0.1, "pivot": [-5.93185, 30.51764, -1.5], "rotation": [180, 0, -165], "uv": [11, 20]},
+						{"origin": [-10.67679, 32.07224, -2], "size": [4, 1, 1], "inflate": 0.1, "pivot": [-8.67679, 32.57224, -1.5], "rotation": [180, 0, -120], "uv": [11, 17]},
+						{"origin": [0, 29.5, -2], "size": [4, 1, 1], "inflate": 0.1, "pivot": [4, 30, -1.5], "rotation": [180, 0, 165], "uv": [0, 20]},
+						{"origin": [4.5, 30.7, -2], "size": [4, 1, 1], "inflate": 0.1, "pivot": [8, 31, -1.5], "rotation": [180, 0, 120], "uv": [0, 17]}
+					]
+				}
+			]
+		}
+	]
+}

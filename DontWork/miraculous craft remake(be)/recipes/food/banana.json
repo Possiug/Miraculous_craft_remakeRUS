@@ -1,0 +1,28 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "banana"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "AB"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:bamboo",
+        "data": 0
+      },
+      "B": {
+        "item": "minecraft:yellow_dye",
+        "data": 0
+      }
+    },
+    "result": {
+      "item": "miraculous:banana",
+      "count": 1
+    }
+  }
+}

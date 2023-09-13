@@ -1,0 +1,43 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.pig_tambourine",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "rightitem",
+					"pivot": [0, 3.4, 3.3]
+				},
+				{
+					"name": "weapon",
+					"parent": "rightitem",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-0.5, 0, -2], "size": [1, 1, 4], "uv": [0, 6]},
+						{"origin": [0, -0.5, -0.5], "size": [0, 1, 1], "uv": [10, 14]},
+						{"origin": [-0.5, 0.56066, 1.35355], "size": [1, 1, 2], "pivot": [0, 1.06066, 2.35355], "rotation": [45, 0, 0], "uv": [7, 0]},
+						{"origin": [0, 0.20711, 2.20711], "size": [0, 1, 1], "pivot": [0, 0.70711, 2.70711], "rotation": [45, 0, 0], "uv": [0, 0]},
+						{"origin": [-0.5, 0.56066, -3.35355], "size": [1, 1, 2], "pivot": [0, 1.06066, -2.35355], "rotation": [-45, 0, 0], "uv": [9, 10]},
+						{"origin": [0, 0.20711, -3.20711], "size": [0, 1, 1], "pivot": [0, 0.70711, -2.70711], "rotation": [-45, 0, 0], "uv": [13, 14]},
+						{"origin": [-0.5, 5.8, -2], "size": [1, 1, 4], "uv": [0, 0]},
+						{"origin": [0, 6.3, -0.5], "size": [0, 1, 1], "uv": [7, 6]},
+						{"origin": [-0.5, 1.4, -3.4], "size": [1, 4, 1], "uv": [0, 12]},
+						{"origin": [0, 2.9, -3.9], "size": [0, 1, 1], "uv": [15, 9]},
+						{"origin": [-0.5, 4.75355, -2.83934], "size": [1, 2, 1], "pivot": [0, 5.75355, -2.33934], "rotation": [-45, 0, 0], "uv": [14, 0]},
+						{"origin": [0, 5.60711, -3.19289], "size": [0, 1, 1], "pivot": [0, 6.10711, -2.69289], "rotation": [-45, 0, 0], "uv": [16, 4]},
+						{"origin": [-0.5, 1.4, 2.4], "size": [1, 4, 1], "inflate": -0.1, "uv": [11, 4]},
+						{"origin": [-0.5, 4.75355, 1.83934], "size": [1, 2, 1], "pivot": [0, 5.75355, 2.33934], "rotation": [45, 0, 0], "uv": [5, 13]},
+						{"origin": [0, 5.60711, 2.19289], "size": [0, 1, 1], "pivot": [0, 6.10711, 2.69289], "rotation": [45, 0, 0], "uv": [0, 6]}
+					]
+				}
+			]
+		}
+	]
+}

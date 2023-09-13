@@ -1,0 +1,262 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "miraculous:ladybug_yoyo",
+       "category" : "Commands"
+        },
+    "components": {
+	"minecraft:wearable":{
+		"slot":"slot.weapon.mainhand"
+	},
+  "minecraft:max_stack_size": 1,
+	"minecraft:creative_category": {
+		"parent": "itemGroup.name.miraculous"
+	  },
+	  "minecraft:cooldown": {
+		"category": "x",
+		"duration": 1
+	  },
+		"minecraft:icon":{
+			"texture": "ladybug_yoyo",
+				"frame": 0
+		},
+		"minecraft:on_use": {
+      "on_use": {
+          "event": "yoyo:ladybug",
+          "target": "self"
+      }
+  }  
+    },
+	"events": {
+		"yoyo:ladybug": {
+		"sequence": [
+		{
+		"trigger": {
+		"target": "self",
+		"event": "yoyo:shoot"
+		},
+		"condition": "!query.is_sneaking"
+		},
+		{
+		"trigger": {
+		"target": "self",
+		"event": "yoyo:lucky_charm"
+		},
+		"condition": "query.is_sneaking"
+		}
+	]
+	},
+	"yoyo:shoot": {
+		"run_command": {
+		"command": ["playsound yoyo @a ~~~"]
+		},
+		"shoot": {
+		"projectile": "miraculous:ladybug_yoyo_projectile<yoyo_seat>",
+		"launch_power": 1
+		}
+	},
+	"yoyo:lucky_charm": {
+    "randomize": [
+    {
+	"run_command": {
+    "command": [
+"event entity @s[tag=!use_lucky_charm, tag=is_random] lucky_charm_speak",
+"event entity @s[tag=is_lucky_charm, tag=is_random] lucky_charm",
+"event entity @s[tag=!use_lucky_charm, tag=is_random] clear_lucky_charm",
+"give @s[tag=!use_lucky_charm, tag=is_random] miraculous:lucky_charm_axe",
+"kill @e [family=lucky_charm]",
+"tag @s[lm=50, l=21863] add full_power",
+"tag @s[tag=using_lucky_charm] remove is_random",
+"tag @s[tag=full_power] add using_lucky_charm",
+"tag @s[tag=!use_lucky_charm, tag=is_random, tag=!full_power] add use_lucky_charm",
+"tag @s[tag=use_lucky_charm, tag=!full_power] add timer_on"]
+    },
+	 "weight": 1
+	},
+	{
+	"run_command": {
+    "command": [
+"event entity @s[tag=!use_lucky_charm, tag=is_random] lucky_charm_speak",
+"event entity @s[tag=is_lucky_charm, tag=is_random] lucky_charm",
+"event entity @s[tag=!use_lucky_charm, tag=is_random] clear_lucky_charm",
+"give @s[tag=!use_lucky_charm, tag=is_random] miraculous:lucky_charm_pickaxe",
+"kill @e [family=lucky_charm]",
+"tag @s[lm=50, l=21863] add full_power",
+"tag @s[tag=using_lucky_charm] remove is_random",
+"tag @s[tag=full_power] add using_lucky_charm",
+"tag @s[tag=!use_lucky_charm, tag=is_random, tag=!full_power] add use_lucky_charm",
+"tag @s[tag=use_lucky_charm, tag=!full_power] add timer_on"]
+    },
+	 "weight": 1
+	},
+	{
+	"run_command": {
+    "command": [
+"event entity @s[tag=!use_lucky_charm, tag=is_random] lucky_charm_speak",
+"event entity @s[tag=is_lucky_charm, tag=is_random] lucky_charm",
+"event entity @s[tag=!use_lucky_charm, tag=is_random] clear_lucky_charm",
+"give @s[tag=!use_lucky_charm, tag=is_random] miraculous:lucky_charm_hoe",
+"kill @e [family=lucky_charm]",
+"tag @s[lm=50, l=21863] add full_power",
+"tag @s[tag=using_lucky_charm] remove is_random",
+"tag @s[tag=full_power] add using_lucky_charm",
+"tag @s[tag=!use_lucky_charm, tag=is_random, tag=!full_power] add use_lucky_charm",
+"tag @s[tag=use_lucky_charm, tag=!full_power] add timer_on"]
+    },
+	 "weight": 1
+	},
+	{
+	"run_command": {
+    },
+	 "weight": 1
+	},
+	{
+	"run_command": {
+    "command": [
+"event entity @s[tag=!use_lucky_charm, tag=is_random] lucky_charm_speak",
+"event entity @s[tag=is_lucky_charm, tag=is_random] lucky_charm",
+"event entity @s[tag=!use_lucky_charm, tag=is_random] clear_lucky_charm",
+"give @s[tag=!use_lucky_charm, tag=is_random] miraculous:lucky_charm_sword",
+"kill @e [family=lucky_charm]",
+"tag @s[lm=50, l=21863] add full_power",
+"tag @s[tag=using_lucky_charm] remove is_random",
+"tag @s[tag=full_power] add using_lucky_charm",
+"tag @s[tag=!use_lucky_charm, tag=is_random, tag=!full_power] add use_lucky_charm",
+"tag @s[tag=use_lucky_charm, tag=!full_power] add timer_on"]
+    },
+	 "weight": 1
+	},
+	{
+	"run_command": {
+    "command": [
+"event entity @s[tag=!use_lucky_charm, tag=is_random] lucky_charm_speak",
+"event entity @s[tag=is_lucky_charm, tag=is_random] lucky_charm",
+"event entity @s[tag=!use_lucky_charm, tag=is_random] clear_lucky_charm",
+"give @s[tag=!use_lucky_charm, tag=is_random] miraculous:lucky_charm_shovel",
+"kill @e [family=lucky_charm]",
+"tag @s[lm=50, l=21863] add full_power",
+"tag @s[tag=using_lucky_charm] remove is_random",
+"tag @s[tag=full_power] add using_lucky_charm",
+"tag @s[tag=!use_lucky_charm, tag=is_random, tag=!full_power] add use_lucky_charm",
+"tag @s[tag=use_lucky_charm, tag=!full_power] add timer_on"]
+    },
+	 "weight": 1
+	},
+	{
+	"run_command": {
+    "command": [
+"event entity @s[tag=!use_lucky_charm, tag=is_random] lucky_charm_speak",
+"event entity @s[tag=is_lucky_charm, tag=is_random] lucky_charm",
+"event entity @s[tag=!use_lucky_charm, tag=is_random] clear_lucky_charm",
+"give @s[tag=!use_lucky_charm, tag=is_random] miraculous:lucky_charm_mace",
+"kill @e [family=lucky_charm]",
+"tag @s[lm=50, l=21863] add full_power",
+"tag @s[tag=using_lucky_charm] remove is_random",
+"tag @s[tag=full_power] add using_lucky_charm",
+"tag @s[tag=!use_lucky_charm, tag=is_random, tag=!full_power] add use_lucky_charm",
+"tag @s[tag=use_lucky_charm, tag=!full_power] add timer_on"]
+    },
+	 "weight": 1
+	},
+	{
+	"run_command": {
+    "command": [
+"event entity @s[tag=!use_lucky_charm, tag=is_random] lucky_charm_speak",
+"event entity @s[tag=is_lucky_charm, tag=is_random] lucky_charm",
+"event entity @s[tag=!use_lucky_charm, tag=is_random] clear_lucky_charm",
+"give @s[tag=!use_lucky_charm, tag=is_random] miraculous:lucky_charm_hammer",
+"kill @e [family=lucky_charm]",
+"tag @s[lm=50, l=21863] add full_power",
+"tag @s[tag=using_lucky_charm] remove is_random",
+"tag @s[tag=full_power] add using_lucky_charm",
+"tag @s[tag=!use_lucky_charm, tag=is_random, tag=!full_power] add use_lucky_charm",
+"tag @s[tag=use_lucky_charm, tag=!full_power] add timer_on"]
+    },
+	 "weight": 1
+	},
+	{
+	"run_command": {
+    "command": [
+"event entity @s[tag=!use_lucky_charm, tag=is_random] lucky_charm_speak",
+"event entity @s[tag=is_lucky_charm, tag=is_random] lucky_charm",
+"event entity @s[tag=!use_lucky_charm, tag=is_random] clear_lucky_charm",
+"give @s[tag=!use_lucky_charm, tag=is_random] miraculous:lucky_charm_flint_and_steel",
+"kill @e [family=lucky_charm]",
+"tag @s[lm=50, l=21863] add full_power",
+"tag @s[tag=using_lucky_charm] remove is_random",
+"tag @s[tag=full_power] add using_lucky_charm",
+"tag @s[tag=!use_lucky_charm, tag=is_random, tag=!full_power] add use_lucky_charm",
+"tag @s[tag=use_lucky_charm, tag=!full_power] add timer_on"]
+    },
+	 "weight": 1
+	},
+	{
+	"run_command": {
+    "command": [
+"event entity @s[tag=!use_lucky_charm, tag=is_random] lucky_charm_speak",
+"event entity @s[tag=is_lucky_charm, tag=is_random] lucky_charm",
+"event entity @s[tag=!use_lucky_charm, tag=is_random] clear_lucky_charm",
+"kill @e [family=lucky_charm]",
+"event entity @s[tag=!use_lucky_charm, tag=is_random] summon_motorcycle",
+"tag @s[lm=50, l=21863] add full_power",
+"tag @s[tag=using_lucky_charm] remove is_random",
+"tag @s[tag=full_power] add using_lucky_charm",
+"tag @s[tag=!use_lucky_charm, tag=is_random, tag=!full_power] add use_lucky_charm",
+"tag @s[tag=use_lucky_charm, tag=!full_power] add timer_on"]
+    },
+	 "weight": 1
+	},
+	{
+	"run_command": {
+    "command": [
+"event entity @s[tag=!use_lucky_charm, tag=is_random] lucky_charm_speak",
+"event entity @s[tag=is_lucky_charm, tag=is_random] lucky_charm",
+"event entity @s[tag=!use_lucky_charm, tag=is_random] clear_lucky_charm",
+"kill @e [family=lucky_charm]",
+"event entity @s[tag=!use_lucky_charm, tag=is_random] summon_lamborghini",
+"tag @s[lm=50, l=21863] add full_power",
+"tag @s[tag=using_lucky_charm] remove is_random",
+"tag @s[tag=full_power] add using_lucky_charm",
+"tag @s[tag=!use_lucky_charm, tag=is_random, tag=!full_power] add use_lucky_charm",
+"tag @s[tag=use_lucky_charm, tag=!full_power] add timer_on"]
+    },
+	 "weight": 1
+	},
+	{
+	"run_command": {
+    "command": [
+"event entity @s[tag=!use_lucky_charm, tag=is_random] lucky_charm_speak",
+"event entity @s[tag=is_lucky_charm, tag=is_random] lucky_charm",
+"event entity @s[tag=!use_lucky_charm, tag=is_random] clear_lucky_charm",
+"kill @e [family=lucky_charm]",
+"event entity @s[tag=!use_lucky_charm, tag=is_random] summon_hovercraft",
+"tag @s[lm=50, l=21863] add full_power",
+"tag @s[tag=using_lucky_charm] remove is_random",
+"tag @s[tag=full_power] add using_lucky_charm",
+"tag @s[tag=!use_lucky_charm, tag=is_random, tag=!full_power] add use_lucky_charm",
+"tag @s[tag=use_lucky_charm, tag=!full_power] add timer_on"]
+    },
+	 "weight": 1
+	},
+	{
+	"run_command": {
+    "command": [
+"event entity @s[tag=!use_lucky_charm, tag=is_random] lucky_charm_speak",
+"event entity @s[tag=is_lucky_charm, tag=is_random] lucky_charm",
+"event entity @s[tag=!use_lucky_charm, tag=is_random] clear_lucky_charm",
+"kill @e [family=lucky_charm]",
+"event entity @s[tag=!use_lucky_charm, tag=is_random] summon_plane",
+"tag @s[lm=50, l=21863] add full_power",
+"tag @s[tag=using_lucky_charm] remove is_random",
+"tag @s[tag=full_power] add using_lucky_charm",
+"tag @s[tag=!use_lucky_charm, tag=is_random, tag=!full_power] add use_lucky_charm",
+"tag @s[tag=use_lucky_charm, tag=!full_power] add timer_on"]
+    },
+	 "weight": 1
+    }
+   ]
+  }
+ }
+}
+}

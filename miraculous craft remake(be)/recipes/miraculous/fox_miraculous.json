@@ -1,0 +1,46 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "fox_miraculous"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "ABA",
+      "CDC",
+      "AEF"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:string",
+        "data": 0
+      },
+      "B": {
+        "item": "minecraft:dye",
+        "data": 19
+      },
+      "C": {
+        "item": "minecraft:sweet_berries",
+        "data": 0
+      },
+      "D": {
+        "item": "minecraft:diamond",
+        "data": 0
+      },
+      "E": {
+        "item": "minecraft:dye",
+        "data": 14
+      },
+      "F": {
+        "item": "minecraft:gold_ingot",
+        "data": 0
+      }
+    },
+    "result": {
+      "item": "miraculous:fox_miraculous_resigns",
+      "count": 1
+    }
+  }
+}

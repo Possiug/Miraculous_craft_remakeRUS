@@ -1,0 +1,42 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "rabbit_miraculous"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "ABA",
+      "CDC",
+      "AEA"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:iron_ingot",
+        "data": 0
+      },
+      "B": {
+        "item": "minecraft:dye",
+        "data": 12
+      },
+      "C": {
+        "item": "minecraft:carrot",
+        "data": 0
+      },
+      "D": {
+        "item": "minecraft:diamond",
+        "data": 0
+      },
+      "E": {
+        "item": "minecraft:dye",
+        "data": 19
+      }
+    },
+    "result": {
+      "item": "miraculous:rabbit_miraculous_resigns",
+      "count": 1
+    }
+  }
+}

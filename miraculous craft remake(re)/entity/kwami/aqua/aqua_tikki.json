@@ -1,0 +1,43 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "miraculous:aqua_tikki",
+      "materials": {
+        "default": "allay"
+      },
+      "textures": {
+        "default": "textures/entity/kwami/tikki/aqua_tikki"
+      },
+      "geometry": {
+        "default": "geometry.aqua_tikki"
+      },
+      "spawn_egg": {
+        "texture": "tikki",
+        "texture_index": 0
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.holding_trident = query.is_item_name_any('slot.weapon.mainhand', 'minecraft:trident');"
+        ]
+      },
+      "animations": {
+        "idle": "animation.kwami.idle",
+        "fly": "animation.kwami.fly",
+        "hold_item": "animation.allay.hold_item"
+      },
+      "animation_controllers": [
+        {
+          "general": "controller.animation.allay.general"
+        },
+        {
+          "holding": "controller.animation.allay.holding"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.wolf"
+      ],
+      "enable_attachables": true
+    }
+  }
+}

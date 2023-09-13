@@ -1,0 +1,19 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_furnace": {
+    "tags": [
+      "smoker"
+    ],
+    "output": {
+      "item": "miraculous:camembert",
+      "data": 0
+    },
+    "input": {
+      "item": "miraculous:cheese",
+      "data": 0
+    },
+    "description": {
+      "identifier": "camembert_smoker"
+    }
+  }
+}

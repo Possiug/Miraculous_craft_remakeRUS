@@ -1,0 +1,42 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "peacock_miraculous"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "ABA",
+      "CDC",
+      "AEA"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:feather",
+        "data": 0
+      },
+      "B": {
+        "item": "minecraft:dye",
+        "data": 5
+      },
+      "C": {
+        "item": "minecraft:wheat_seeds",
+        "data": 0
+      },
+      "D": {
+        "item": "minecraft:diamond",
+        "data": 0
+      },
+      "E": {
+        "item": "minecraft:dye",
+        "data": 18
+      }
+    },
+    "result": {
+      "item": "miraculous:peacock_miraculous_resigns",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.cosmobug_mask",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 4.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "head",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4, 24, -4], "size": [8, 8, 8], "inflate": 0.1, "pivot": [0, 0, 0], "rotation": [-180, 0, 180], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "rightArm",
+					"pivot": [-5, 22, 0]
+				},
+				{
+					"name": "leftArm",
+					"pivot": [5, 22, 0]
+				},
+				{
+					"name": "body",
+					"pivot": [0, 24, 0]
+				},
+				{
+					"name": "leftLeg",
+					"pivot": [1.9, 12, 0]
+				},
+				{
+					"name": "rightLeg",
+					"pivot": [-1.9, 12, 0]
+				}
+			]
+		}
+	]
+}

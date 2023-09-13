@@ -1,0 +1,20 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "miraculous:ladybug_yoyo_projectile",
+      "materials": { "default": "bat" },
+      "textures": {
+        "default": "textures/miraculous/ladybug_miraculous/ladybug_yoyo_projectile"
+      },
+      "geometry": {
+        "default": "geometry.ladybug_yoyo_projectile"
+      },
+      "render_controllers": [ "controller.render.bat" ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 18
+      }
+    }
+  }
+}

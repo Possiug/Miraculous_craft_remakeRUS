@@ -1,0 +1,49 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.teleport": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"voyage_teleport": "(1.0)"
+						}
+					],
+					"on_entry":[
+							"/gamerule sendcommandfeedback false",
+							"/execute @e[type=miraculous:voyage_portal1] ~ ~ ~ tag @e[r=0.5,type=!miraculous:voyage_portal1,type=!miraculous:voyage_portal2] add playerb",
+							"/execute @e[type=miraculous:voyage_portal2] ~ ~ ~ tp @e[tag=playerb] ~ ~ ~ facing ^ ^ ^1",				
+							"/execute @e[tag=playerb] ~ ~ ~ tp ~ ~ ~ ~ 0",
+							"/execute @e[tag=playerb] ~ ~ ~ tp ^ ^ ^0.7",
+							"/execute @e[tag=playerb] ~ ~ ~ tag @e[tag=playerb] remove playerb",
+							"/execute @e[type=miraculous:voyage_portal2] ~ ~ ~ tag @e[r=0.5,type=!miraculous:voyage_portal1,type=!miraculous:voyage_portal2] add playero",
+							"/execute @e[type=miraculous:voyage_portal1] ~ ~ ~ tp @e[tag=playero] ~ ~ ~ facing ^ ^ ^1",				
+							"/execute @e[tag=playero] ~ ~ ~ tp ~ ~ ~ ~ 0",
+							"/execute @e[tag=playero] ~ ~ ~ tp ^ ^ ^0.7",
+							"/execute @e[tag=playero] ~ ~ ~ tag @e[tag=playero] remove playero"
+					]
+				},
+				"voyage_teleport": {
+					"transitions": [
+						{
+							"default": "!query.is_moving"
+						}
+					],
+					"on_entry":[
+							"/gamerule sendcommandfeedback false",
+							"/execute @e[type=miraculous:voyage_portal1] ~ ~ ~ tag @e[r=0.5,type=!miraculous:voyage_portal1,type=!miraculous:voyage_portal2] add playerb",
+							"/execute @e[type=miraculous:voyage_portal2] ~ ~ ~ tp @e[tag=playerb] ~ ~ ~ facing ^ ^ ^1",				
+							"/execute @e[tag=playerb] ~ ~ ~ tp ~ ~ ~ ~ 0",
+							"/execute @e[tag=playerb] ~ ~ ~ tp ^ ^ ^0.7",
+							"/execute @e[tag=playerb] ~ ~ ~ tag @e[tag=playerb] remove playerb",
+							"/execute @e[type=miraculous:voyage_portal2] ~ ~ ~ tag @e[r=0.5,type=!miraculous:voyage_portal1,type=!miraculous:voyage_portal2] add playero",
+							"/execute @e[type=miraculous:voyage_portal1] ~ ~ ~ tp @e[tag=playero] ~ ~ ~ facing ^ ^ ^1",				
+							"/execute @e[tag=playero] ~ ~ ~ tp ~ ~ ~ ~ 0",
+							"/execute @e[tag=playero] ~ ~ ~ tp ^ ^ ^0.7",
+							"/execute @e[tag=playero] ~ ~ ~ tag @e[tag=playero] remove playero"
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,20 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "miraculous:horseshoe_projectile",
+      "materials": { "default": "bat" },
+      "textures": {
+        "default": "textures/miraculous/horse_miraculous/horseshoe_projectile"
+      },
+      "geometry": {
+        "default": "geometry.horseshoe_projectile"
+      },
+      "render_controllers": [ "controller.render.bat" ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 18
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "miraculous:motorcycle_lucky_charm",
+      "textures": {
+        "default": "textures/entity/lucky_charm_vehicles/motorcycle_lucky_charm"
+      },
+      "materials": {
+        "default": "skeleton"
+      },
+      "geometry": {
+        "default": "geometry.motorcycle_lucky_charm"
+      },
+      "render_controllers": [
+        "controller.render.translucence"
+      ],
+      "spawn_egg": {
+        "texture": "motorcycle_lucky_charm",
+        "texture_index": 0
+      },
+      "animations": {
+        "walk": "animation.moto.walk",
+        "idle": "animation.moto.idle"
+      },
+      "scripts": {
+        "animate": [
+          "root",
+          {
+            "walk": "query.is_moving"
+          },
+          {
+            "idle": "!query.is_moving"
+          }
+        ]
+      }
+    }
+  }
+}

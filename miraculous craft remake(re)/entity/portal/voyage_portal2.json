@@ -1,0 +1,20 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "miraculous:voyage_portal2",
+      "materials": { "default": "bat" },
+      "textures": {
+        "default": "textures/miraculous/horse_miraculous/voyage_portal"
+      },
+      "geometry": {
+        "default": "geometry.portal"
+      },
+      "render_controllers": [ "controller.render.bat" ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 18
+      }
+    }
+  }
+}

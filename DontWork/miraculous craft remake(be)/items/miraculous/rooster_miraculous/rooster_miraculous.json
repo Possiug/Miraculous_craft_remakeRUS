@@ -1,0 +1,51 @@
+{
+ "format_version":  "1.16.100",           "minecraft:item":  {
+    "description":  {
+      "category": "Commands",
+        "identifier":"miraculous:rooster_miraculous"
+        },
+    "components":  {
+         "minecraft:max_stack_size":  1,
+    "minecraft:enchantable":  {
+     "value":  10,
+     "slot":  "armor_head"
+      },
+    "minecraft:icon": {
+                "texture": "rooster_miraculous"
+            },
+	"minecraft:on_use": {
+		"on_use": {
+		  "event": "miraculous"
+		}
+	  }
+    },
+    "events": {
+	  "miraculous": {
+		"run_command": {
+		  "command": [
+		    "tellraw @s {\"rawtext\":[{\"text\":\"§6<\"},{\"selector\":\"@s\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:orikko_detransform\"}]}",
+		    "playsound detransform @a ~~~",
+		    "clear @s miraculous:rooster_miraculous",
+		    "clear @s miraculous:rooster_feather",
+		    "give @s miraculous:camo_rooster_miraculous 1 0 {\"keep_on_death\":{}}",
+		    "summon miraculous:orikko",
+		    "replaceitem entity @s slot.armor.head 0 air",
+		    "replaceitem entity @s slot.armor.chest 0 air",
+		    "replaceitem entity @s slot.armor.legs 0 air",
+		    "replaceitem entity @s slot.armor.feet 0 air",
+		    "tag @s[tag=sublimation_fire_resistance] remove sublimation_fire_resistance",
+		    "tag @s[tag=sublimation_invisibility] remove sublimation_invisibility",
+		    "tag @s[tag=sublimation_speed] remove sublimation_speed",
+		    "tag @s[tag=sublimation_night_vision] remove sublimation_night_vision",
+		    "tag @s[tag=is_rooster] remove is_rooster",
+		    "tag @s[tag=use_sublimation] remove use_sublimation",
+		    "tag @s[tag=is_aqua] remove is_aqua",
+		    "tag @s[tag=timer_off] remove timer_off",
+		    "tag @s[tag=timer_on] remove timer_on",
+		    "scoreboard players set @s miraculous_timer 0"
+		  ]
+	    }
+	  }
+    }
+  }
+}

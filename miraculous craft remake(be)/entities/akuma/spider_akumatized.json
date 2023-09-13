@@ -1,0 +1,219 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "miraculous:spider_akumatized",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+	},
+	    "component_groups": {
+	    "spider_transformation": {
+		  "minecraft:transformation": {
+		    "into": "spider",
+		    "drop_inventory": true
+		  }
+		},
+		"power_short": {
+		  "minecraft:input_ground_controlled": {},
+		  "minecraft:timer": {
+		    "time": 140,
+		    "time_down_event": {
+		      "event": "power_empty"
+		    }
+		  },
+		  "minecraft:is_ignited": {}
+		},
+		"power_long": {
+		  "minecraft:input_ground_controlled": {},
+		  "minecraft:timer": {
+		    "time": 850,
+		    "time_down_event": {
+		      "event": "power_empty"
+		    }
+		  },
+		  "minecraft:is_ignited": {}
+		}
+   },
+	"components": {
+		"minecraft:type_family": {
+		  "family": [
+		    "player"
+		  ]
+		},
+		"minecraft:interact": {
+		  "interactions": [
+		{
+		  "on_interact": {
+		    "filters": {
+			  "all_of": [
+			    { "test": "is_family", "subject": "other", "value": "player" },
+			    { "test": "has_equipment", "subject": "player", "domain": "hand", "value": "miraculous:butterfly_cane" }
+			  ]
+			},
+			"event": "spider_desakumatized"
+		  },
+		  "interact_text": "action.interact.desakumatized",
+		  "use_item": false
+		    }
+		  ]
+		},
+		"minecraft:health": {
+		  "value": 100,
+		  "max": 100
+		},
+		"minecraft:collision_box": {
+		  "width": 0.6,
+		  "height": 0.8
+		},
+		"minecraft:physics": {},
+		"minecraft:is_stackable": {},
+		"minecraft:pushable": {
+		  "is_pushable": true,
+		  "is_pushable_by_piston": true
+		},
+      "minecraft:movement": {
+        "value": 0.25
+      },
+      "minecraft:fall_damage": {
+        "value": 0.0
+      },
+      "minecraft:leashable": {
+        "soft_distance": 4.0,
+        "hard_distance": 6.0,
+        "max_distance": 10.0
+      },
+      "minecraft:balloonable": {
+        "mass": 0.6
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:attack": {
+        "damage": 3,
+        "effect_name": "poison",
+        "effect_duration": 30
+      },
+      "minecraft:behavior.mount_pathing": {
+        "priority": 2,
+        "speed_multiplier": 1.5,
+        "target_dist": 0.0,
+        "track_target": true
+      },
+      "minecraft:scale": {
+        "value": 1
+      },
+      "minecraft:attack": {
+        "damage": 3
+      },
+      "minecraft:behavior.melee_attack": {
+        "priority": 2,
+        "speed_multiplier": 1.0,
+        "target_dist": 0.0,
+        "max_dist": 3,
+        "random_stop_interval": 100,
+        "track_target": false,
+        "reach_multiplier": 1.4
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 3,
+        "within_radius": 25,
+        "must_reach": false,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "monster"
+                }
+              ]
+            },
+            "max_dist": 15,
+            "must_see": false
+          }
+        ],
+        "must_see": false,
+        "speed_multiplier": 1.0
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 3
+      },
+      "minecraft:behavior.owner_hurt_by_target": {
+        "priority": 1
+      },
+      "minecraft:behavior.owner_hurt_target": {
+        "priority": 2
+      },
+      "minecraft:behavior.mount_pathing": {
+        "priority": 2,
+        "speed_multiplier": 1.5,
+        "target_dist": 0.0,
+        "track_target": true
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 1.0
+      },
+		"minecraft:behavior.player_ride_tamed": {},
+		"minecraft:conditional_bandwidth_optimization": {
+		  "default_values": {
+			"max_optimized_distance": 60,
+			"max_dropped_ticks": 20,
+			"use_motion_prediction_hints": true
+		  },
+		  "conditional_values": [
+		    {
+			"max_optimized_distance": 0,
+			"max_dropped_ticks": 0,
+			  "conditional_values": [
+			    {
+					"test": "is_moving",
+					"subject": "self",
+					"operator": "==",
+					"value": true
+			    }
+			  ]
+		    }
+		  ]
+		}
+	},
+	"events": {
+	    "spider_transformation": {
+	      "add": {
+		    "component_groups": [
+		      "spider_transformation"
+		    ]
+		  }
+	    },
+      "spider_desakumatized": {
+        "run_command": {
+            "command": [
+            "event entity @e[type=miraculous:spider_akumatized, c=1] spider_transformation",
+            "summon miraculous:akuma",
+            "tag @p[lm=50, l=21863] add full_power",
+            "tag @p[tag=full_power] remove use_akuma"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "instant_despawn"
+		    ]
+		  }
+	    },
+	    "power_empty": {
+		  "remove": {
+			"component_groups": [
+				"power_short",
+				"power_long"
+			]
+		  }
+		}
+	}
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "miraculous:hovercraft_lucky_charm",
+      "textures": {
+        "default": "textures/entity/lucky_charm_vehicles/hovercraft_lucky_charm"
+      },
+      "materials": {
+        "default": "skeleton"
+      },
+      "geometry": {
+        "default": "geometry.hovercraft_lucky_charm"
+      },
+      "render_controllers": [
+        "controller.render.translucence"
+      ],
+      "spawn_egg": {
+        "base_color": "#73824b",
+        "overlay_color": "#9f9b66"
+      },
+      "animations": {
+        "walk": "animation.speedboat.walk"
+      },
+      "scripts": {
+        "animate": [
+          "root",
+          {
+            "walk": "query.is_moving"
+          }
+        ]
+      }
+    }
+  }
+}

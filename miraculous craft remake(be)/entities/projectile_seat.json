@@ -1,0 +1,185 @@
+{
+	"format_version": "1.17.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "miraculous:projectile_seat",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"width": 0.5,
+				"height": 3
+			},
+			"minecraft:physics": {
+				"has_collision": true,
+				"has_gravity": true
+			},
+			"minecraft:leashable": {
+				"soft_distance": 0,
+				"hard_distance": 1,
+				"max_distance": 128,
+				"can_be_stolen": false,
+				"on_unleash": {
+					"event": "despawn"
+				}
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:environment_sensor": {
+				"triggers": [
+					{
+						"event": "slow_falling"
+					},
+					{
+						"event": "tp_to_owner",
+						"filters": {
+							"test": "has_tag",
+							"value": "projectile_retract",
+							"operator": "not",
+							"subject": "self"
+						}
+					},
+					{
+						"event": "despawn",
+						"filters": {
+							"test": "has_tag",
+							"value": "despawn",
+							"operator": "equals",
+							"subject": "self"
+						}
+					},
+					{
+						"event": "despawn",
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_tag",
+									"value": "projectile_retract",
+									"operator": "equals",
+									"subject": "self"
+								},
+								{
+									"test": "rider_count",
+									"value": 0,
+									"operator": "equals",
+									"subject": "self"
+								}
+							]
+						}
+					}
+				]
+			},
+			"minecraft:rideable": {
+				"family_types": [
+					"player",
+					"technical"
+				],
+				"crouching_skip_interact": false,
+				"pull_in_entities": false,
+				"rider_can_interact": false,
+				"seat_count": 1,
+				"seats": [
+					{
+						"position": [
+							0,
+							-0.2,
+							0
+						]
+					}
+				]
+			},
+			"minecraft:addrider": {
+				"entity_type": "miraculous:projectile_seat2"
+			},
+			"minecraft:input_ground_controlled": {},
+			"minecraft:timer": {
+				"looping": true,
+				"time": 1.5,
+				"time_down_event": {
+					"filters": {
+						"test": "has_tag",
+						"value": "projectile_retract",
+						"operator": "not",
+						"subject": "self"
+					},
+					"event": "despawn"
+				}
+			}
+		},
+		"component_groups": {
+			"yoyo_seat": {
+				"minecraft:spawn_entity": {
+					"entities": [
+						{
+							"should_leash": true,
+							"num_to_spawn": 1,
+							"min_wait_time": 0,
+							"max_wait_time": 0,
+							"spawn_entity": "minecraft:cow",
+							"single_use": true
+						}
+					]
+				}
+			},
+			"despawn": {
+				"minecraft:instant_despawn": {}
+			},
+			"collision": {
+				"minecraft:collision_box": {
+					"width": 0.5,
+					"height": 3
+				}
+			}
+		},
+		"events": {
+			"yoyo_seat": {
+				"add": {
+					"component_groups": [
+						"yoyo_seat"
+					]
+				}
+			},
+			"despawn": {
+				"add": {
+					"component_groups": [
+						"despawn"
+					]
+				}
+			},
+			"slow_falling": {
+				"run_command": {
+					"command": [
+						"effect @s slow_falling 10 10 true"
+					]
+				}
+			},
+			"tp_to_owner": {
+				"run_command": {
+					"command": [
+						"tp @s @p"
+					]
+				}
+			},
+			"collsion": {
+				"run_command": {
+					"command": [
+						"say collision"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"collision"
+					]
+				}
+			}
+		}
+	}
+}

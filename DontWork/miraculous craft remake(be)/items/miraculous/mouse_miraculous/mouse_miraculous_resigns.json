@@ -1,0 +1,59 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:item": {
+        "description": {
+            "identifier": "miraculous:mouse_miraculous_resigns",
+            "category": "Equipment"
+        },
+        "components": {
+            "minecraft:icon": {
+                "texture": "mouse_miraculous"
+            },
+            "minecraft:creative_category": {
+                "parent": "itemGroup.name.miraculous"
+            },
+            "minecraft:max_stack_size": 1,
+            "minecraft:hand_equipped": true,
+            "minecraft:display_name": {},
+            "minecraft:on_use": {
+                "on_use": {
+                    "event": "event:miraculous"
+                }
+            },
+            "minecraft:use_duration": 0,
+            "minecraft:cooldown": {
+                "category": "select",
+                "duration": 1
+            }
+        },
+    "events": {
+		"event:miraculous": {
+		"sequence": [
+		{
+		"trigger": {
+		"target": "self",
+		"event": "miraculous:mouse"
+		},
+		"condition": "!query.is_sneaking"
+		}
+	]
+	},
+	"miraculous:mouse": {
+		"run_command": {
+		"command": [
+		    "gamerule sendcommandfeedback false",
+		    "clear @s miraculous:mouse_miraculous_resigns",
+		    "tag @s[tag=!chloe_mouse, tag=!gabriel_mouse, tag=!mylene_mouse] add marinette_mouse",
+		    "tag @s[tag=!polymouse] add multimouse",
+		    "give @s[tag=mylene_mouse] miraculous:mylene_camo_mouse_miraculous 1 0 {\"keep_on_death\":{}}",
+		    "give @s[tag=gabriel_mouse] miraculous:gabriel_camo_mouse_miraculous 1 0 {\"keep_on_death\":{}}",
+		    "give @s[tag=chloe_mouse] miraculous:chloe_camo_mouse_miraculous 1 0 {\"keep_on_death\":{}}",
+		    "give @s[tag=marinette_mouse] miraculous:camo_mouse_miraculous 1 0 {\"keep_on_death\":{}}",
+		    "summon miraculous:mullo",
+		    "playsound mini_box @a ~~~"
+      ]
+    }
+   }
+  }
+ }
+}

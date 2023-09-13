@@ -1,0 +1,54 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "miraculous:horseshoe",
+       "category" : "Commands"
+        },
+    "components": {
+	"minecraft:wearable":{
+		"slot":"slot.weapon.mainhand"
+	},
+  "minecraft:max_stack_size": 1,
+	"minecraft:creative_category": {
+		"parent": "itemGroup.name.miraculous"
+	  },
+	  "minecraft:cooldown": {
+		"category": "x",
+		"duration": 1
+	  },
+		"minecraft:icon":{
+			"texture": "horseshoe",
+				"frame": 0
+		},
+		"minecraft:on_use": {
+      "on_use": {
+          "event": "horseshoe",
+          "target": "self"
+      }
+  }  
+    },
+	"events": {
+		"horseshoe": {
+		"sequence": [
+		{
+		"trigger": {
+		"target": "self",
+		"event": "horseshoe:shoot"
+		},
+		"condition": "!query.is_sneaking"
+		}
+	]
+	},
+	"horseshoe:shoot": {
+		"run_command": {
+		"command": []
+		},
+		"shoot": {
+		"projectile": "miraculous:horseshoe_projectile",
+		"launch_power": 1
+    }
+   }
+  }
+ }
+}

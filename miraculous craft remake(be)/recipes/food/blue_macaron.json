@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "blue_macaron"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "AB ",
+      "C  "
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:egg",
+        "data": 0
+      },
+      "B": {
+        "item": "minecraft:sugar",
+        "data": 0
+      },
+      "C": {
+        "item": "minecraft:blue_dye",
+        "data": 0
+      }
+    },
+    "result": {
+      "item": "miraculous:blue_macaron",
+      "count": 3
+    }
+  }
+}

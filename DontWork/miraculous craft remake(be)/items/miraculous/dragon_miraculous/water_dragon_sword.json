@@ -1,0 +1,116 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "category": "Commands",
+      "identifier": "miraculous:water_dragon_sword"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "water_dragon_sword"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.sword"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:allow_off_hand": true,
+      "minecraft:foil": false,
+      "minecraft:durability": {
+        "max_durability": 5000,
+        "damage_chance": {
+          "min": 60,
+          "max": 100
+        }
+      },
+      "minecraft:mining_speed": 1,
+      "minecraft:damage": 7,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "sword"
+      },
+      "minecraft:can_destroy_in_creative": true,
+      "minecraft:weapon": {
+        "on_hurt_entity": {
+          "event": "hurt"
+        },
+        "on_not_hurt_entity": {
+          "event": "hurt"
+        },
+        "on_hit_block": {
+          "event": "hurt"
+        }
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "sword:element_water"
+        }
+      },
+      "minecraft:render_offsets": {
+        "main_hand": {
+          "third_person": {
+            "scale": [
+              0.1,
+              0.1,
+              0.1
+            ]
+          },
+          "first_person": {
+            "scale": [
+              0.037999999999977205,
+              0.037999999999977205,
+              0.037999999999977205
+            ]
+          }
+        },
+        "off_hand": {
+          "third_person": {
+            "scale": [
+              0.1,
+              0.1,
+              0.1
+            ]
+          },
+          "first_person": {
+            "scale": [
+              0.037999999999977205,
+              0.037999999999977205,
+              0.037999999999977205
+            ]
+          }
+        }
+      },
+      "tag:minecraft:is_sword": {},
+      "minecraft:display_name": {},
+      "minecraft:cooldown": {
+        "category": "action_cooldown",
+        "duration": 5
+      }
+    },
+	"events": {
+		"sword:element_water": {
+		"sequence": [
+		{
+		"trigger": {
+		"target": "self",
+		"event": "sword:water_dragon"
+		},
+		"condition": "!query.is_sneaking"
+		}
+	]
+	},
+	"sword:water_dragon": {
+		"run_command": {
+		"command": [
+		    "fill ~4 ~4 ~4 ~-4 ~-4 ~-4 air 1 replace miraculous:water_dragon_block",
+		    "tag @s[tag=water_dragon_off] remove water_dragon",
+		    "execute @s[tag=!water_dragon] ~ ~ ~ function water_dragon_on",
+		    "tag @s[tag=water_dragon_off] remove water_dragon_off",
+		    "tag @s[tag=!water_dragon_off, tag=full_power, tag=water_dragon] add water_dragon_off",
+		    "tag @s[tag=!water_dragon] add water_dragon"
+		 ]
+    }
+   }
+  }
+ }
+}

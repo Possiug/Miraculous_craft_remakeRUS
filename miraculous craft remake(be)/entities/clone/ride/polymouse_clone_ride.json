@@ -1,0 +1,179 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "miraculous:polymouse_clone_ride",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+	  "has_rider": {
+	    "minecraft:physics": {
+          "has_collision": true
+        },
+        "minecraft:pushable": {
+          "is_pushable": true,
+          "is_pushable_by_piston": true
+        }
+	  },
+	  "no_rider": {
+	    "minecraft:physics": {
+          "has_collision": false
+        },
+        "minecraft:pushable": {
+          "is_pushable": false,
+          "is_pushable_by_piston": false
+        }
+	  }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "player", "clone" ]
+      },
+      "minecraft:health": {
+        "value": 20,
+        "max": 20
+      },
+	  "minecraft:collision_box": {
+        "width": 0.7,
+        "height": 1.8
+      },
+	  "minecraft:scale": {
+	    "value": 0.45
+      },
+      "minecraft:movement": {
+        "value": 0.1
+      },
+      "minecraft:fall_damage": {
+        "value": 0.0
+      },
+      "minecraft:underwater_movement": {
+        "value": 0.08
+      },
+	  "minecraft:knockback_resistance": {
+	    "value": 9
+	  },
+      "minecraft:horse.jump_strength": {
+        "value": {
+          "range_min": 0.4,
+          "range_max": 0.6
+        }
+      },
+      "minecraft:rideable": {
+        "seat_count": 1,
+        "family_types": [
+          "player"
+        ],
+        "seats": {
+          "position": [ 0.0, -0.71, 0.30 ]
+        }
+      },
+      "minecraft:input_ground_controlled": {
+      },
+      "minecraft:can_power_jump": {
+      },
+	  "minecraft:despawn": {
+        "filters": {
+          "any_of": [
+		  {
+            "test": "has_damage",
+			"subject": "self",
+			"value": "fatal"
+          },
+		  {
+            "test": "has_tag",
+			"subject": "self",
+			"value": "despawn_now"
+          }
+        ]
+      }
+    },
+	"minecraft:damage_sensor": {
+        "triggers": [
+        {
+          "on_damage": {
+            "filters": {
+              "any_of": [
+              {
+                "test": "has_damage",
+                "subject": "self",
+                "value": "fall"
+              },
+			  {
+                "test": "is_family",
+                "subject": "other",
+                "value": "clone"
+              },
+			  {
+                "test": "rider_count",
+                "subject": "self",
+                "operator": "==",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "deals_damage": false
+      }
+    ]
+  },
+    "minecraft:environment_sensor": {
+      "triggers": [
+      {
+        "filters": {
+          "any_of": [
+          {
+            "test": "rider_count",
+            "subject": "self",
+            "operator": "==",
+            "value": 0
+          }
+        ]
+      },
+      "event": "no_rider"
+      },
+	  {
+        "filters": {
+          "any_of": [
+          {
+            "test": "rider_count",
+            "subject": "self",
+            "operator": ">",
+            "value": 0
+          }
+        ]
+      },
+      "event": "has_rider"
+      }
+      ]
+     }
+    },
+    "events": {
+	  "has_rider": {
+	    "remove": {
+		  "component_groups": [
+		    "no_rider"
+		  ]
+		},
+		"add": {
+		  "component_groups": [
+		    "has_rider"
+		  ]
+		}
+	  },
+	  "no_rider": {
+	    "remove": {
+		  "component_groups": [
+		    "has_rider"
+		  ]
+		},
+		"add": {
+		  "component_groups": [
+		    "no_rider"
+		  ]
+		}
+	  }
+    }
+  }
+}

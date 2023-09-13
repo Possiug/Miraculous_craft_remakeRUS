@@ -1,0 +1,24 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "miraculous:lucky_charm_boots",
+      "item": { "miraculous:lucky_charm_boots": "query.owner_identifier == 'minecraft:player'" },
+      "materials": {
+        "default": "armor",
+        "enchanted": "armor_enchanted"
+      },
+      "textures": {
+        "default": "textures/miraculous/ladybug_miraculous/lucky_charm/lucky_charm_boots",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.ladybug_boots"
+      },
+      "scripts": {
+        "parent_setup": "variable.helmet_layer_visible = 0.0;"
+      },
+      "render_controllers": [ "controller.render.armor" ]
+    }
+  }
+}

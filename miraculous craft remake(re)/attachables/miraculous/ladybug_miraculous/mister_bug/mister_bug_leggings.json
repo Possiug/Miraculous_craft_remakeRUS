@@ -1,0 +1,24 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "miraculous:mister_bug_leggings",
+      "item": { "miraculous:mister_bug_leggings": "query.owner_identifier == 'minecraft:player'" },
+      "materials": {
+        "default": "armor",
+        "enchanted": "armor_enchanted"
+      },
+      "textures": {
+        "default": "textures/miraculous/ladybug_miraculous/mister_bug/mister_bug_leggings",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.ladybug_leggings"
+      },
+      "scripts": {
+        "parent_setup": "variable.helmet_layer_visible = 0.0;"
+      },
+      "render_controllers": [ "controller.render.armor" ]
+    }
+  }
+}

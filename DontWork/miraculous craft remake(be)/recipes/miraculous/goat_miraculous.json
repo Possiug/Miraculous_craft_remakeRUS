@@ -1,0 +1,42 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "goat_miraculous"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "ABA",
+      "CDC",
+      "AEA"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:iron_ingot",
+        "data": 0
+      },
+      "B": {
+        "item": "minecraft:dye",
+        "data": 19
+      },
+      "C": {
+        "item": "minecraft:wheat",
+        "data": 0
+      },
+      "D": {
+        "item": "minecraft:diamond",
+        "data": 0
+      },
+      "E": {
+        "item": "minecraft:dye",
+        "data": 16
+      }
+    },
+    "result": {
+      "item": "miraculous:goat_miraculous_resigns",
+      "count": 1
+    }
+  }
+}

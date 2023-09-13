@@ -1,0 +1,27 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.sparrow_boomerang_projectile",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "rightitem",
+					"pivot": [0, 2, 0],
+					"rotation": [-90, 0, 0],
+					"cubes": [
+						{"origin": [0, -2, -2], "size": [0, 4, 4], "uv": [5, 5]},
+						{"origin": [0, 2, -2], "size": [0, 4, 4], "uv": [0, 0]},
+						{"origin": [-0.5, 1.5, -2], "size": [1, 1, 4], "inflate": -0.7, "uv": [10, 0]}
+					]
+				}
+			]
+		}
+	]
+}

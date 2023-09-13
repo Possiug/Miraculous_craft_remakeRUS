@@ -1,0 +1,52 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:item": {
+        "description": {
+            "identifier": "miraculous:majestia_bracelet",
+            "category": "Equipment"
+        },
+        "components": {
+            "minecraft:icon": {
+                "texture": "majestia_bracelet"
+            },
+            "minecraft:creative_category": {
+                "parent": "itemGroup.name.miraculous"
+            },
+            "minecraft:max_stack_size": 1,
+            "minecraft:hand_equipped": true,
+            "minecraft:display_name": {},
+            "minecraft:on_use": {
+                "on_use": {
+                    "event": "event:miraculous"
+                }
+            },
+            "minecraft:use_duration": 0,
+            "minecraft:cooldown": {
+                "category": "select",
+                "duration": 1
+            }
+        },
+        "events": {
+            "event:miraculous": {
+                "run_command": {
+                    "command": [
+                        "gamerule sendcommandfeedback false",
+                        "tag @s[tag=majestia] remove majestia",
+                        "execute @s[tag=!sparrow, tag=!knightowl] ~ ~ ~ playsound new_york_transform @a ~~~",
+                        "replaceitem entity @s[tag=!sparrow, tag=!knightowl] slot.armor.chest 0 air",
+                        "replaceitem entity @s[tag=!sparrow, tag=!knightowl] slot.armor.legs 0 air",
+                        "replaceitem entity @s[tag=!sparrow, tag=!knightowl] slot.armor.feet 0 air",
+                        "ability @s[m=survival, tag=!sparrow, tag=!knightowl] mayfly false",
+                        "tag @s[tag=majestia_detransform, tag=!sparrow, tag=!knightowl] remove majestia_detransform",
+                        "tag @s[tag=majestia_transform, tag=!sparrow, tag=!knightowl] add majestia_detransform",
+                        "tag @s[tag=majestia_transform, tag=!sparrow, tag=!knightowl] remove majestia_transform",
+                        "tag @s[tag=!majestia_detransform, tag=!sparrow, tag=!knightowl] add majestia_transform",
+                        "ability @s[m=survival, tag=majestia_transform, tag=!sparrow, tag=!knightowl] mayfly true",
+                        "event entity @s[tag=majestia_transform, tag=!sparrow, tag=!knightowl] majestia",
+                        "tag @s[tag=majestia_transform, tag=!sparrow, tag=!knightowl] add majestia"
+                    ]
+                }
+            }
+        }
+    }
+}

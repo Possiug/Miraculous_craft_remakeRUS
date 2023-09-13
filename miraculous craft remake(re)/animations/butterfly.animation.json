@@ -1,0 +1,25 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.butterfly.wing_flap": {
+			"loop": true,
+			"animation_length": 0.33333,
+			"bones": {
+				"leftWing": {
+					"rotation": {
+						"0.0": [0, 0, 30],
+						"0.1667": [0, 0, -30],
+						"0.3333": [0, 0, 30]
+					}
+				},
+				"rightWing": {
+					"rotation": {
+						"0.0": [0, 0, -30],
+						"0.1667": [0, 0, 30],
+						"0.3333": [0, 0, -30]
+					}
+				}
+			}
+		}
+	}
+}
