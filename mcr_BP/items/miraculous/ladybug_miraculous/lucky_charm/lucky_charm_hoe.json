@@ -17,7 +17,10 @@
 			},
 			"minecraft:digger": {
         "destroy_speeds": [{
-          "speed": 8
+			"blocks":{
+				"tags":"q.all_tags('')"
+			},
+        	"speed": 8
         }]
       },
 			"minecraft:damage": 3,

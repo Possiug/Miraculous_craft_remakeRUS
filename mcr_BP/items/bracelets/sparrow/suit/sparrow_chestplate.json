@@ -23,13 +23,12 @@
       "minecraft:durability": {
         "max_durability": 3200
       },
-      "minecraft:armor": {
-        "protection": 9
-      },
+      
       "minecraft:knockback_resistance": {
         "protection": 9
       },
       "minecraft:wearable": {
+        "protection":9,
         "slot": "slot.armor.chest"
       }
     }

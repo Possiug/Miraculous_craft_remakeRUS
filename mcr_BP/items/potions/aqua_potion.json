@@ -6,7 +6,6 @@
             "category": "Equipment"
         },
         "components": {
-            "minecraft:foil": false,
             "menu_category": {
               "group": "itemGroup.name.potion"
             },
@@ -14,7 +13,7 @@
               "texture": "aqua_potion"
             },
             "minecraft:max_stack_size": 1,
-            "minecraft:foil": true,
+            "minecraft:glint": true,
             "minecraft:hand_equipped": false,
             "minecraft:display_name": {}
         }
