@@ -6,8 +6,8 @@
       "identifier": "miraculous:multifox_multitude_mask"
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.helmet"
+      "menu_category": {
+        "group": "itemGroup.name.helmet"
       },
       "minecraft:display_name": {},
       "minecraft:icon": {

@@ -9,8 +9,8 @@
             "minecraft:icon": {
                 "texture": "tiger_miraculous"
             },
-            "minecraft:creative_category": {
-                "parent": "itemGroup.name.miraculous"
+            "menu_category": {
+                "group": "itemGroup.name.miraculous"
             },
             "minecraft:max_stack_size": 1,
             "minecraft:hand_equipped": true,

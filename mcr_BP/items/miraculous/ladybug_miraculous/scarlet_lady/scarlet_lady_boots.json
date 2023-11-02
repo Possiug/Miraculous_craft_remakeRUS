@@ -6,8 +6,8 @@
       "identifier": "miraculous:scarlet_lady_boots"
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.boots"
+      "menu_category": {
+        "group": "itemGroup.name.boots"
       },
       "minecraft:display_name": {
         "value": "item.miraculous:scarlet_bug_miraculous_camuflage"

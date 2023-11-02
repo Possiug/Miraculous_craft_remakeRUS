@@ -6,8 +6,8 @@
       "identifier": "miraculous:ice_noire_leggings"
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.leggings"
+      "menu_category": {
+        "group": "itemGroup.name.leggings"
       },
       "minecraft:display_name": {
         "value": "item.miraculous:lady_noir_miraculous_camuflage"

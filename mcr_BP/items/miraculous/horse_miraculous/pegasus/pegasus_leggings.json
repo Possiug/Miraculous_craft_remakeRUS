@@ -6,8 +6,8 @@
       "identifier": "miraculous:pegasus_leggings"
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.leggings"
+      "menu_category": {
+        "group": "itemGroup.name.leggings"
       },
       "minecraft:display_name": {
         "value": "item.miraculous:pegasus_miraculous_camuflage"

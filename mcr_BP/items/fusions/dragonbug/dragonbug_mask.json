@@ -9,8 +9,8 @@
       "minecraft:display_name": {
         "value": "item.miraculous:dragonbug_mask"
       },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.helmet"
+      "menu_category": {
+        "group": "itemGroup.name.helmet"
       },
       "minecraft:icon": {
         "texture": "dragonbug_mask"

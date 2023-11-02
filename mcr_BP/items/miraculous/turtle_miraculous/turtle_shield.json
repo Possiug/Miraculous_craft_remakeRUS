@@ -9,8 +9,8 @@
       "minecraft:icon": {
         "texture": "turtle_shield"
       },
-      "minecraft:creative_category": {
-        "parent": "Commands"
+      "menu_category": {
+        "group": "Commands"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,

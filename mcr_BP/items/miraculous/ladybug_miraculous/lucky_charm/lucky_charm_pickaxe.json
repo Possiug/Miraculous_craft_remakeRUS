@@ -46,8 +46,8 @@
 					"event": "kaua"
 				}
 			},
-			"minecraft:creative_category": {
-				"parent": "itemGroup.name.pickaxe"
+			"menu_category": {
+				"group": "itemGroup.name.pickaxe"
 			},
 			"minecraft:digger": {
 				"use_efficiency": true,

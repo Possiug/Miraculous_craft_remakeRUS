@@ -6,8 +6,8 @@
       "identifier": "miraculous:aqua_ryuko_chestplate"
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.chestplate"
+      "menu_category": {
+        "group": "itemGroup.name.chestplate"
       },
       "minecraft:display_name": {
         "value": "item.miraculous:dragon_miraculous_camuflage"

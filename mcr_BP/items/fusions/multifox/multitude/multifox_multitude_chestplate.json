@@ -9,8 +9,8 @@
 "minecraft:display_name": {
         "value": "item.miraculous:multifox_camuflage"
       },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.chestplate"
+      "menu_category": {
+        "group": "itemGroup.name.chestplate"
       },
       
       "minecraft:icon": {

@@ -6,8 +6,8 @@
       "identifier": "miraculous:shui_mao_chestplate"
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.chestplate"
+      "menu_category": {
+        "group": "itemGroup.name.chestplate"
       },
       "minecraft:display_name": {
         "value": "item.miraculous:maotif_cat_miraculous_camuflage"

@@ -6,8 +6,8 @@
       "category": "Equipment"
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.miscFood"
+      "menu_category": {
+        "group": "itemGroup.name.miscFood"
       },
       "minecraft:icon": {
         "texture": "camembert"

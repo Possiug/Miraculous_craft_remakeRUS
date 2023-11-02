@@ -6,8 +6,8 @@
       "identifier": "miraculous:koki_marina_mask"
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.helmet"
+      "menu_category": {
+        "group": "itemGroup.name.helmet"
       },
       "minecraft:display_name": {
         "value": "item.miraculous:koki_marina_miraculous_mask"

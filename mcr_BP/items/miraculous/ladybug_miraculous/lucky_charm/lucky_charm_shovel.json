@@ -88,8 +88,8 @@
 					"event": "dmg"
 				}
 			},
-			"minecraft:creative_category": {
-				"parent": "itemGroup.name.shovel"
+			"menu_category": {
+				"group": "itemGroup.name.shovel"
 			}
 		},
 		"events": {

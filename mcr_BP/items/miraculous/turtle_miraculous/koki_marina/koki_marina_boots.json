@@ -6,8 +6,8 @@
       "identifier": "miraculous:koki_marina_boots"
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.boots"
+      "menu_category": {
+        "group": "itemGroup.name.boots"
       },
       "minecraft:display_name": {
         "value": "item.miraculous:koki_marina_miraculous_camuflage"

@@ -6,8 +6,8 @@
       "identifier": "miraculous:aqua_fox_trot_chestplate"
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.chestplate"
+      "menu_category": {
+        "group": "itemGroup.name.chestplate"
       },
       "minecraft:display_name": {
         "value": "item.miraculous:fox_trot_miraculous_camuflage"

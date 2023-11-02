@@ -6,8 +6,8 @@
       "identifier": "miraculous:king_monkey_mask"
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.helmet"
+      "menu_category": {
+        "group": "itemGroup.name.helmet"
       },
       "minecraft:display_name": {
         "value": "item.miraculous:monkey_miraculous_mask"

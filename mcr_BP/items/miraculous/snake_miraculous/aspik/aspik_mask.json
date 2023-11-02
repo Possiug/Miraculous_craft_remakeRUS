@@ -6,8 +6,8 @@
       "identifier": "miraculous:aspik_mask"
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.helmet"
+      "menu_category": {
+        "group": "itemGroup.name.helmet"
       },
       "minecraft:display_name": {
         "value": "item.miraculous:aspik_miraculous_mask"

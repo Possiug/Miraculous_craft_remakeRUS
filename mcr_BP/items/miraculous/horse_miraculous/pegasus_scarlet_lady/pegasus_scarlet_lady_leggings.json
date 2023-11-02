@@ -6,8 +6,8 @@
       "identifier": "miraculous:pegasus_scarlet_lady_leggings"
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.leggings"
+      "menu_category": {
+        "group": "itemGroup.name.leggings"
       },
       "minecraft:display_name": {
         "value": "item.miraculous:scarlet_lady_horse_miraculous_camuflage"

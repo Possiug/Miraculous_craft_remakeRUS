@@ -6,8 +6,8 @@
       "identifier": "miraculous:rooster_bold_invisibility_chestplate"
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.chestplate"
+      "menu_category": {
+        "group": "itemGroup.name.chestplate"
       },
       "minecraft:display_name": {
         "value": "item.miraculous:rooster_miraculous_camuflage"

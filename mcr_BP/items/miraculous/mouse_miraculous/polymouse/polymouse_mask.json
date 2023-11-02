@@ -6,8 +6,8 @@
       "identifier": "miraculous:polymouse_mask"
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.helmet"
+      "menu_category": {
+        "group": "itemGroup.name.helmet"
       },
       "minecraft:display_name": {
         "value": "item.miraculous:polymouse_mouse_miraculous_mask"

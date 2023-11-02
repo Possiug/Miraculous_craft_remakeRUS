@@ -6,8 +6,8 @@
       "identifier": "miraculous:astro_walker_chestplate"
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.chestplate"
+      "menu_category": {
+        "group": "itemGroup.name.chestplate"
       },
       "minecraft:display_name": {
         "value": "item.miraculous:cat_walker_miraculous_camuflage"

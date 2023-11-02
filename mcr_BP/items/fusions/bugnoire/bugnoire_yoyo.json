@@ -10,8 +10,8 @@
 		"slot":"slot.weapon.mainhand"
 	},
   "minecraft:max_stack_size": 1,
-	"minecraft:creative_category": {
-		"parent": "itemGroup.name.miraculous"
+	"menu_category": {
+		"group": "itemGroup.name.miraculous"
 	  },
 	  "minecraft:cooldown": {
 		"category": "x",

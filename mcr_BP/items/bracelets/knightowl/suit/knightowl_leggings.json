@@ -6,8 +6,8 @@
       "identifier": "miraculous:knightowl_leggings"
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.leggings"
+      "menu_category": {
+        "group": "itemGroup.name.leggings"
       },
       "minecraft:display_name": {},
       "minecraft:icon": {

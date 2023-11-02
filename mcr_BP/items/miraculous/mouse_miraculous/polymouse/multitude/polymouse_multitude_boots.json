@@ -6,8 +6,8 @@
       "identifier": "miraculous:polymouse_multitude_boots"
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.boots"
+      "menu_category": {
+        "group": "itemGroup.name.boots"
       },
       "minecraft:display_name": {
         "value": "item.miraculous:mouse_miraculous_camuflage"
