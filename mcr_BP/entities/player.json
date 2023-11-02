@@ -105,7 +105,6 @@
             "event": "minecraft:trigger_raid"
 		    }
 		  }
-      }
     },
     "events": {
       "ladybug_miraculous_detransform": {
