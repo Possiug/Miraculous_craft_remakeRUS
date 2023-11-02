@@ -1,0 +1,20 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "miraculous:dog_ball_projectile",
+      "materials": { "default": "bat" },
+      "textures": {
+        "default": "textures/miraculous/dog_miraculous/dog_ball"
+      },
+      "geometry": {
+        "default": "geometry.knightowl_grenade"
+      },
+      "render_controllers": [ "controller.render.bat" ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 18
+      }
+    }
+  }
+}

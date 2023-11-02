@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "miraculous:grapple_hook",
+       "category" : "Commands"
+    },
+    "components": {
+		"minecraft:damage": 2,
+	"minecraft:wearable":{
+		"slot":"slot.weapon.mainhand"
+		},
+		"minecraft:icon":{
+			"texture": "grapple_hook",
+				"frame": 0
+		},
+		"minecraft:on_use": {
+      "on_use": {
+          "event": "grapple_hook:shoot",
+          "target": "self"
+      }
+  }  
+    },
+	"events":{
+		"grapple_hook:shoot": {
+			"run_command": {
+			"command": ["playsound grapple_hook_shoot @a ~~~"]
+			},
+        "shoot": {
+            "projectile": "miraculous:grapple_hook_projectile<yoyo_seat>",
+            "launch_power": 1
+        }
+    }
+	}
+  }
+}

@@ -1,0 +1,58 @@
+{
+ "format_version":  "1.20.30",           "minecraft:item":  {
+    "description":  {
+      "category": "Commands",
+        "identifier":"miraculous:snake_miraculous"
+        },
+    "components":  {
+         "minecraft:max_stack_size":  1,
+    "minecraft:enchantable":  {
+     "value":  10,
+     "slot":  "armor_head"
+      },
+    "minecraft:icon": {
+                "texture": "snake_miraculous"
+            },
+	"minecraft:on_use": {
+		"on_use": {
+		  "event": "miraculous"
+		}
+	  }
+    },
+    "events": {
+	  "miraculous": {
+		"run_command": {
+		  "command": [
+		    "tellraw @s {\"rawtext\":[{\"text\":\"§3<\"},{\"selector\":\"@s\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:sass_detransform\"}]}",
+		    "playsound detransform @a ~~~",
+		    "clear @s[tag=maotif] miraculous:cat_miraculous",
+		    "clear @s[tag=maotif] miraculous:cat_staff",
+		    "give @s[tag=maotif, tag=is_cat] miraculous:maotif_cat_miraculous 1 0 {\"keep_on_death\":{}}",
+		    "give @s[tag=maotif, tag=is_cat] miraculous:maotif_staff 1 0 {\"keep_on_death\":{}}",
+		    "clear @s miraculous:snake_miraculous",
+		    "clear @s miraculous:snake_lyre",
+		    "give @s[tag=luka_snake] miraculous:camo_snake_miraculous 1 0 {\"keep_on_death\":{}}",
+		    "give @s[tag=marinette_snake] miraculous:marinette_camo_snake_miraculous 1 0 {\"keep_on_death\":{}}",
+		    "give @s[tag=gabriel_snake] miraculous:gabriel_camo_snake_miraculous 1 0 {\"keep_on_death\":{}}",
+		    "summon miraculous:sass",
+		    "replaceitem entity @s slot.armor.head 0 air",
+		    "replaceitem entity @s slot.armor.chest 0 air",
+		    "replaceitem entity @s slot.armor.legs 0 air",
+		    "replaceitem entity @s slot.armor.feet 0 air",
+		    "event entity @s[tag=is_cat, tag=is_snake, tag=cat_noir] cat_noir",
+		    "event entity @s[tag=is_cat, tag=is_snake, tag=lady_noire] lady_noire",
+		    "event entity @s[tag=is_cat, tag=is_snake, tag=cat_walker] cat_walker",
+		    "event entity @s[tag=is_cat, tag=is_snake, tag=maotif] maotif",
+		    "tag @s[tag=is_snake] remove is_snake",
+		    "tag @s[tag=use_second_chance] remove use_second_chance",
+		    "event entity @e[type=miraculous:poit_entity] despawn",
+		    "tag @s[tag=is_aqua] remove is_aqua",
+		    "tag @s[tag=timer_off] remove timer_off",
+		    "tag @s[tag=timer_on] remove timer_on",
+		    "scoreboard players set @s miraculous_timer 0"
+		  ]
+	    }
+	  }
+    }
+  }
+}

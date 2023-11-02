@@ -1,0 +1,40 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.portal": {
+            "states": {
+                "default": {
+                    "transitions": [
+						{
+							"voyage": "(query.variant==0 && query.is_sheared) || (query.variant==0 && query.is_on_ground)"
+						}
+                    ],
+					"on_entry":[
+						"/stopsound @p voyage",
+						"/clear @p miraculous:voyage",
+						"/execute @p[c=1] ~ ~ ~ playsound voyage @s ~ ~ ~ 1"
+					]
+                },
+				 "voyage": {
+                    "transitions": [
+						{
+							"default": "0"
+						}
+                    ],
+					"on_entry":[
+						"/gamerule sendcommandfeedback false",
+							"/execute @s[type=miraculous:voyage_projectile] ~ ~ ~ event entity @e[type=miraculous:voyage_portal1,tag=pgb] despawn",
+							"/execute @s[type=miraculous:voyage_projectile] ~ ~ ~ tag @s add pg1",
+							"/execute @s ~ ~ ~ tp ~ ~ ~ facing @p",
+							"/execute @s ~ ~ ~ tp ~ ~ ~ ~ 0",
+							"/execute @s[tag=pg1] ~ ~ ~ summon miraculous:voyage_portal1 ~ ~ ~",
+							"/execute @s[tag=pg1] ~ ~ ~ tag @e[r=1,type=miraculous:voyage_portal1] add pgb",
+							"/execute @s[tag=pg1] ~ ~ ~ tp @e[type=miraculous:voyage_portal1] ~ ~ ~ facing ^ ^1 ^1",
+							"/execute @s[tag=pg1] ~ ~ ~ tp @e[type=miraculous:voyage_portal1] ~ ~ ~ ~ 0",
+							"/event entity @s despawn"	
+					]
+                }
+            }
+        }
+    }
+}

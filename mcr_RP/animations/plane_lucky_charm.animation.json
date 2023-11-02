@@ -1,0 +1,20 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.plane_lucky_charm.fly": {
+			"loop": true,
+			"animation_length": 0.66667,
+			"bones": {
+				"propeller": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [0, 0, 90],
+						"0.3333": [0, 0, 180],
+						"0.5": [0, 0, 270],
+						"0.6667": [0, 0, 360]
+					}
+				}
+			}
+		}
+	}
+}

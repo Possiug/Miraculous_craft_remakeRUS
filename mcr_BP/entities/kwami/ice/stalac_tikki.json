@@ -1,0 +1,160 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "miraculous:stalac_tikki",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+	},
+	"components": {
+		"minecraft:type_family": {
+		  "family": [
+		    "kwami"
+		  ]
+		},
+		"minecraft:interact": {
+		  "interactions": [
+		{
+		  "on_interact": {
+		    "filters": {
+			  "all_of": [
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_cat" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_ladybug" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_bee" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_turtle" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_fox" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_peacock" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_butterfly" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_horse" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_dragon" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_snake" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_tiger" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_mouse" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_pig" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_goat" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_rooster" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_bull" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_dog" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_monkey" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_rabbit" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_eagle" },
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "is_aqua" },
+			    {
+			    "any_of": [
+			    { "test": "has_equipment", "subject": "player", "domain": "hand", "value": "miraculous:camo_ladybug_miraculous" },
+			    { "test": "has_equipment", "subject": "player", "domain": "hand", "value": "miraculous:alya_camo_ladybug_miraculous" },
+			    { "test": "has_equipment", "subject": "player", "domain": "hand", "value": "miraculous:adrien_camo_ladybug_miraculous" }
+			    ]},
+			    { "test": "is_variant", "subject": "self", "value": 0 },
+			    { "test": "is_sneaking", "subject": "other", "operator": "=", "value": false }
+			  ]
+			},
+			"event": "is_ice_ladybug_miraculous_transformation"
+		  },
+		  "interact_text": "action.interact.transform",
+		  "use_item": true
+		    }
+		  ]
+		},
+		"minecraft:health": {
+		  "value": 5000,
+		  "max": 5000
+		},
+		"minecraft:collision_box": {
+		  "width": 0.6,
+		  "height": 0.8
+		},
+		"minecraft:physics": {},
+		"minecraft:is_stackable": {},
+		"minecraft:pushable": {
+		  "is_pushable": true,
+		  "is_pushable_by_piston": true
+		},
+      "minecraft:movement": {
+        "value": 0.25
+      },
+       
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.mount_pathing": {
+        "priority": 2,
+        "speed_multiplier": 1.5,
+        "target_dist": 0.0,
+        "track_target": true
+      },
+      "minecraft:behavior.tempt": {
+        "priority": 4,
+        "speed_multiplier": 1.0,
+        "items": [
+          "miraculous:camo_ladybug_miraculous",
+          "miraculous:alya_camo_ladybug_miraculous",
+          "miraculous:adrien_camo_ladybug_miraculous"
+        ]
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 1.0
+       },
+		"minecraft:behavior.player_ride_tamed": {},
+		"minecraft:conditional_bandwidth_optimization": {
+		  "default_values": {
+			"max_optimized_distance": 60,
+			"max_dropped_ticks": 20,
+			"use_motion_prediction_hints": true
+		  },
+		  "conditional_values": [
+		    {
+			"max_optimized_distance": 0,
+			"max_dropped_ticks": 0,
+			  "conditional_values": [
+			    {
+					"test": "is_moving",
+					"subject": "self",
+					"operator": "==",
+					"value": true
+			    }
+			  ]
+		    }
+		  ]
+		}
+	},
+	"events": {
+	    "is_ice_ladybug_miraculous_transformation": {
+        "run_command": {
+            "command": [
+            "tellraw @a {\"rawtext\":[{\"text\":\"§4<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:stalac_tikki_spots_on\"}]}",
+            "gamerule sendcommandfeedback false",
+			"tag @p add transforming",
+            "playsound spots_on @a ~~~",
+            "clear @p[tag=transforming] miraculous:camo_ladybug_miraculous",
+            "clear @p[tag=transforming] miraculous:adrien_camo_ladybug_miraculous",
+            "clear @p[tag=transforming] miraculous:alya_camo_ladybug_miraculous",
+            "kill @s [type=miraculous:stalac_tikki]",
+            "event entity @p[tag=ladybug,tag=transforming] ladyice",
+            "event entity @p[tag=mister_bug,tag=transforming] mister_ice",
+            "event entity @p[tag=scarabella,tag=transforming] frozerbella",
+            "event entity @p[tag=scarlet_lady,tag=transforming] scarlet_skater",
+            "give @p[tag=transforming] miraculous:ladybug_miraculous 1 0 {\"keep_on_death\":{}}",
+            "give @p[tag=transforming] miraculous:ladybug_yoyo 1 0 {\"keep_on_death\":{}}",
+            "tag @p[tag=transforming] add is_ladybug",
+			"tag @p remove transforming"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "instant_despawn"
+			]
+		  }
+		}
+	}
+  }
+}

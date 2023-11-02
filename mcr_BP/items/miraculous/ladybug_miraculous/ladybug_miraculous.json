@@ -1,0 +1,83 @@
+{
+ "format_version":  "1.20.30",           "minecraft:item":  {
+    "description":  {
+      "category": "Commands",
+        "identifier":"miraculous:ladybug_miraculous"
+        },
+    "components":  {
+         "minecraft:max_stack_size":  1,
+    "minecraft:enchantable":  {
+     "value":  10,
+     "slot":  "armor_head"
+      },
+    "minecraft:icon": {
+                "texture": "ladybug_miraculous"
+            },
+	"minecraft:on_use": {
+		"on_use": {
+		  "event": "miraculous"
+		}
+	  }
+    },
+    "events": {
+	  "miraculous": {
+		"run_command": {
+		  "command": [
+		    "tellraw @a {\"rawtext\":[{\"text\":\"§4<\"},{\"selector\":\"@s\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:tikki_detransform\"}]}",
+		    "playsound detransform @a ~~~",
+		    "clear @s miraculous:multibug_jump_rope",
+		    "give @s[tag=multimouse, tag=is_mouse] miraculous:mouse_jump_rope 1 0 {\"keep_on_death\":{}}",
+		    "give @s[tag=polymouse, tag=is_mouse] miraculous:polymouse_jump_rope 1 0 {\"keep_on_death\":{}}",
+		    "ability @s[m=survival] mayfly false",
+		    "clear @s miraculous:ladybug_miraculous",
+		    "clear @s miraculous:ladybug_yoyo",
+		    "clear @s miraculous:lucky_charm_axe",
+		    "clear @s miraculous:lucky_charm_mace",
+		    "clear @s miraculous:lucky_charm_hammer",
+		    "clear @s miraculous:lucky_charm_hoe",
+		    "clear @s miraculous:lucky_charm_shovel",
+		    "clear @s miraculous:lucky_charm_sword",
+		    "clear @s miraculous:lucky_charm_pickaxe",
+		    "clear @s miraculous:lucky_charm_flint_and_steel",
+		    "give @s[tag=marinette_ladybug] miraculous:camo_ladybug_miraculous 1 0 {\"keep_on_death\":{}}",
+		    "give @s[tag=alya_ladybug] miraculous:alya_camo_ladybug_miraculous 1 0 {\"keep_on_death\":{}}",
+		    "give @s[tag=adrien_ladybug] miraculous:adrien_camo_ladybug_miraculous 1 0 {\"keep_on_death\":{}}",
+		    "kill @e[family=vehicles]",
+		    "summon miraculous:tikki",
+		    "replaceitem entity @s slot.armor.head 0 air",
+		    "replaceitem entity @s slot.armor.chest 0 air",
+		    "replaceitem entity @s slot.armor.legs 0 air",
+		    "replaceitem entity @s slot.armor.feet 0 air",
+		    "clear @s miraculous:bugnoire_yoyo",
+		    "give @s[tag=maotif, tag=is_cat] miraculous:maotif_cat_miraculous 1 0 {\"keep_on_death\":{}}",
+		    "give @s[tag=maotif, tag=is_cat] miraculous:maotif_staff 1 0 {\"keep_on_death\":{}}",
+		    "event entity @s[tag=is_cat, tag=is_ladybug, tag=cat_noir] cat_noir",
+		    "event entity @s[tag=is_cat, tag=is_ladybug, tag=lady_noire] lady_noire",
+		    "event entity @s[tag=is_cat, tag=is_ladybug, tag=cat_walker] cat_walker",
+		    "event entity @s[tag=is_cat, tag=is_ladybug, tag=maotif] maotif",
+		    "event entity @s[tag=is_bee, tag=is_ladybug, tag=queen_bee] queen_bee",
+		    "event entity @s[tag=is_bee, tag=is_ladybug, tag=vesperia] vesperia",
+		    "event entity @s[tag=is_bee, tag=is_ladybug, tag=marigold] marigold",
+		    "event entity @s[tag=is_horse, tag=is_ladybug, tag=pegasus] pegasus",
+		    "event entity @s[tag=is_horse, tag=is_ladybug, tag=pegasus_scarlet_lady] pegasus_scarlet_lady",
+		    "event entity @s[tag=is_dragon, tag=is_ladybug, tag=ryuko] ryuko",
+		    "event entity @s[tag=is_dragon, tag=is_ladybug, tag=ryuko_scarlet_lady] ryuko_scarlet_lady",
+		    "event entity @s[tag=is_mouse, tag=is_ladybug, tag=multimouse, tag=!is_multitude] multimouse",
+		    "event entity @s[tag=is_mouse, tag=is_ladybug, tag=polymouse, tag=!is_multitude] polymouse",
+		    "event entity @s[tag=is_multitude, tag=multimouse] multimouse_multitude",
+		    "event entity @s[tag=is_multitude, tag=polymouse] polymouse_multitude",
+		    "tag @s[tag=is_ladybug] remove is_ladybug",
+		    "tag @s[tag=is_random] remove is_random",
+		    "tag @s[tag=using_lucky_charm] remove using_lucky_charm",
+		    "tag @s[tag=!ladybug] remove is_lucky_charm",
+		    "tag @s[tag=use_lucky_charm] remove use_lucky_charm",
+		    "tag @s[tag=is_aqua] remove is_aqua",
+		    "tag @s[tag=timer_off] remove timer_off",
+		    "tag @s[tag=timer_on] remove timer_on",
+		    "scoreboard players set @s miraculous_timer 0"
+		  ]
+	    }
+	  }
+    }
+  }
+}

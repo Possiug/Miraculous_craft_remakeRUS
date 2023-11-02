@@ -1,0 +1,75 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+    "controller.animation.start": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [ 
+            {
+              "normal_effects": "q.equipped_item_all_tags('slot.armor.chest', 'miraculous:suit') && q.equipped_item_all_tags('slot.armor.legs', 'miraculous:suit') && q.equipped_item_all_tags('slot.armor.feet', 'miraculous:suit')" 
+            }
+          ],
+          "on_entry": [
+            "/tag @s[lm=0, l=50] remove full_power",
+            "/effect @s speed 0 2 true",
+            "/effect @s jump_boost 0 6 true",
+            "/effect @s resistance 0 3 true",
+            "/effect @s night_vision 0 5 true",
+            "/effect @s night_vision 0 5 true",
+            "/effect @s speed 0 7 true",
+            "/effect @s invisibility 0 5 true",
+            "/effect @s night_vision 0 5 true",
+            "/effect @s fire_resistance 0 5 true",
+            "/effect @s slow_falling 0 5 true",
+            "/effect @s fire_resistance 0 5 true",
+            "/effect @s conduit_power 0 2 true",
+            "/effect @s conduit_power 0 2 true",
+            "/effect @s invisibility 0 2 true",
+            "/effect @s resistance 0 255 true",
+            "/effect @s fire_resistance 0 255 true"
+          ]
+        },
+        "normal_effects": {
+          "transitions": [ 
+            { 
+              "repeat": "(1.0) && q.equipped_item_all_tags('slot.armor.chest', 'miraculous:suit') && q.equipped_item_all_tags('slot.armor.legs', 'miraculous:suit') && q.equipped_item_all_tags('slot.armor.feet', 'miraculous:suit')" 
+            },
+            { 
+              "default": "!q.equipped_item_all_tags('slot.armor.chest', 'miraculous:suit') && !q.equipped_item_all_tags('slot.armor.legs',     'miraculous:suit') && !q.equipped_item_all_tags('slot.armor.feet', 'miraculous:suit')" 
+            }
+          ],
+          "on_entry": [
+            "/tag @s[lm=0, l=50] remove full_power",
+            "/effect @s speed 30 2 true",
+            "/effect @s jump_boost 30 6 true",
+            "/effect @s resistance 30 3 true",
+            "/effect @s[tag=is_cat] night_vision 30 5 true",
+            "/effect @s[tag=is_tiger] night_vision 30 5 true",
+            "/effect @s[tag=sublimation_speed] speed 30 7 true",
+            "/effect @s[tag=sublimation_invisibility] invisibility 30 5 true",
+            "/effect @s[tag=sublimation_night_vision] night_vision 30 5 true",
+            "/effect @s[tag=sublimation_fire_resistance] fire_resistance 30 5 true",
+            "/effect @s[tag=is_wind] slow_falling 30 5 true",
+            "/effect @s[tag=is_lightning] fire_resistance 30 5 true",
+            "/effect @s[tag=is_water] conduit_power 30 2 true",
+            "/effect @s[tag=is_aqua] conduit_power 30 2 true",
+            "/effect @s[tag=is_multitude] invisibility 30 2 true",
+            "/effect @s[tag=resistance] resistance 30 255 true",
+            "/effect @s[tag=resistance] fire_resistance 30 255 true"
+          ]
+        },
+        "repeat": {
+          "transitions": [
+            { 
+              "normal_effects": "(1.0) && q.equipped_item_all_tags('slot.armor.chest', 'miraculous:suit') && q.equipped_item_all_tags('slot.armor.legs', 'miraculous:suit') && q.equipped_item_all_tags('slot.armor.feet', 'miraculous:suit')" 
+            },
+            { 
+              "default": "!q.equipped_item_all_tags('slot.armor.chest', 'miraculous:suit') && !q.equipped_item_all_tags('slot.armor.legs',     'miraculous:suit') && !q.equipped_item_all_tags('slot.armor.feet', 'miraculous:suit')" 
+            }
+          ]
+        }
+      }
+    }
+  }
+}

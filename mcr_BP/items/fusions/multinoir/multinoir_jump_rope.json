@@ -1,0 +1,96 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item": {
+    "description": {
+      "category": "Commands",
+      "identifier": "miraculous:multinoir_jump_rope"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "multinoir_jump_rope"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.sword"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:allow_off_hand": true,
+      "minecraft:foil": false,
+      "minecraft:durability": {
+        "max_durability": 5000,
+        "damage_chance": {
+          "min": 60,
+          "max": 100
+        }
+      },
+      "minecraft:mining_speed": 1,
+      "minecraft:damage": 5,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "sword"
+      },
+      "minecraft:can_destroy_in_creative": true,
+      "minecraft:weapon": {
+        "on_hurt_entity": {
+          "event": "hurt"
+        },
+        "on_not_hurt_entity": {
+          "event": "hurt"
+        },
+        "on_hit_block": {
+          "event": "hurt"
+        }
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_use_event"
+        }
+      },
+      "tag:minecraft:is_sword": {},
+      "minecraft:display_name": {},
+      "minecraft:cooldown": {
+        "category": "action_cooldown",
+        "duration": 1
+      },
+	"minecraft:on_use": {
+		"on_use": {
+		  "event": "multitude"
+		}
+	  }
+    },
+    "events": {
+	  "multitude": {
+		"run_command": {
+		  "command": [
+		    "tellraw @a[tag=!use_multitude] {\"rawtext\":[{\"text\":\"§d<\"},{\"selector\":\"@s\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:multitude\"}]}",
+		    "execute @s[tag=!use_multitude] ~ ~ ~ playsound multitude @a ~~~",
+		    "tag @s[tag=!use_multitude] add is_multitude",
+		    "tag @s[tag=multitude_off] remove use_multitude",
+		    "event entity @s[tag=!use_multitude] multinoir_multitude",
+		    "ride @s[tag=!use_multitude] summon_ride miraculous:multinoir_clone_ride",
+		    "execute @s[tag=!use_multitude] ~ ~ ~ summon miraculous:multinoir_clone",
+		    "execute @s[tag=!use_multitude] ~ ~ ~ summon miraculous:multinoir_clone",
+		    "execute @s[tag=!use_multitude] ~ ~ ~ summon miraculous:multinoir_clone",
+		    "execute @s[tag=!use_multitude] ~ ~ ~ summon miraculous:multinoir_clone",
+		    "execute @s[tag=!use_multitude] ~ ~ ~ summon miraculous:multinoir_clone",
+		    "execute @s[tag=!use_multitude] ~ ~ ~ summon miraculous:multinoir_clone",
+		    "execute @s[tag=!use_multitude] ~ ~ ~ summon miraculous:multinoir_clone",
+		    "execute @s[tag=!use_multitude] ~ ~ ~ summon miraculous:multinoir_clone",
+		    "execute @s[tag=!use_multitude] ~ ~ ~ summon miraculous:multinoir_clone",
+		    "execute @s[tag=!use_multitude] ~ ~ ~ summon miraculous:multinoir_clone",
+		    "event entity @s[tag=use_multitude] multinoir",
+		    "ride @s[tag=use_multitude] stop_riding",
+		    "effect @s[tag=use_multitude] invisibility 0",
+		    "tag @s[tag=use_multitude] remove is_multitude",
+		    "execute @s[tag=use_multitude] ~ ~ ~ kill @e[type=miraculous:multinoir_clone, c=10]",
+		    "tag @s[tag=multitude_off] remove multitude_off",
+		    "tag @s[tag=!multitude_off, tag=full_power, tag=use_multitude] add multitude_off",
+		    "tag @s[tag=!use_multitude] add use_multitude",
+		    "tag @s[lm=50, l=21863] add full_power",
+		    "tag @s[tag=use_multitude, tag=!full_power] add timer_on"
+		  ]
+	    }
+	  }
+    }
+  }
+}

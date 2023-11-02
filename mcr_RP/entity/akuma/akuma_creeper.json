@@ -1,0 +1,43 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "miraculous:akuma_creeper",
+      "materials": {
+        "default": "armor_stand",
+        "legs": "armor_stand"
+      },
+      "textures": {
+        "default": "textures/entity/akuma/akuma"
+      },
+      "geometry": {
+        "default": "geometry.butterfly"
+      },
+      "animations": {
+        "move": "animation.butterfly.wing_flap",
+        "general": "animation.butterfly.wing_flap",
+        "look_at_target": "animation.butterfly.wing_flap",
+        "baby_transform": "animation.butterfly.wing_flap"
+      },
+      "scripts": {
+        "animate": [
+          "general",
+          {
+            "move": "query.modified_move_speed"
+          },
+          "look_at_target",
+          {
+            "baby_transform": "query.is_baby"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.chicken"
+      ],
+      "spawn_egg": {
+        "texture": "akuma",
+        "texture_index": 0
+      }
+    }
+  }
+}

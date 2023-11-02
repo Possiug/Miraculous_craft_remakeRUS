@@ -1,0 +1,73 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "miraculous:bee_spinning_top",
+       "category" : "Commands"
+        },
+    "components": {
+	"minecraft:wearable":{
+		"slot":"slot.weapon.mainhand"
+	},
+  "minecraft:max_stack_size": 1,
+	"minecraft:creative_category": {
+		"parent": "itemGroup.name.miraculous"
+	  },
+	  "minecraft:cooldown": {
+		"category": "x",
+		"duration": 1
+	  },
+		"minecraft:icon":{
+			"texture": "bee_spinning_top",
+				"frame": 0
+		},
+		"minecraft:on_use": {
+      "on_use": {
+          "event": "spinning_top:bee",
+          "target": "self"
+      }
+  }  
+    },
+	"events": {
+		"spinning_top:bee": {
+		"sequence": [
+		{
+		"trigger": {
+		"target": "self",
+		"event": "spinning_top:shoot"
+		},
+		"condition": "!query.is_sneaking"
+		},
+		{
+		"trigger": {
+		"target": "self",
+		"event": "spinning_top:venom"
+		},
+		"condition": "query.is_sneaking"
+		}
+	]
+	},
+	"spinning_top:shoot": {
+		"run_command": {
+		"command": ["playsound yoyo @a ~~~"]
+		},
+		"shoot": {
+		"projectile": "miraculous:bee_spinning_top_projectile<yoyo_seat>",
+		"launch_power": 1
+		}
+	},
+	"spinning_top:venom": {
+		"run_command": {
+		"command": [
+		    "tellraw @a[tag=!use_venom] {\"rawtext\":[{\"text\":\"§g<\"},{\"selector\":\"@s\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:venom\"}]}",
+		    "playsound venom @a ~~~",
+		    "clear @s miraculous:venom",
+		    "give @s[tag=!use_venom] miraculous:venom",
+		    "tag @s[lm=50, l=21863] add full_power",
+		    "tag @s[tag=!use_venom, tag=!full_power] add use_venom",
+		    "tag @s[tag=use_venom, tag=!full_power] add timer_on"]
+                }
+            }
+        }
+    }
+}

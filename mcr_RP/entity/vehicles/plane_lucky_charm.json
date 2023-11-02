@@ -1,0 +1,35 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "miraculous:plane_lucky_charm",
+      "textures": {
+        "default": "textures/entity/lucky_charm_vehicles/plane_lucky_charm"
+      },
+      "materials": {
+        "default": "slime_outer"
+      },
+      "geometry": {
+        "default": "geometry.plane_lucky_charm"
+      },
+      "render_controllers": [
+        "controller.render.translucence"
+      ],
+      "spawn_egg": {
+        "base_color": "#73824b",
+        "overlay_color": "#9f9b66"
+      },
+      "animations": {
+        "walk": "animation.plane_lucky_charm.fly"
+      },
+      "scripts": {
+        "animate": [
+          "root",
+          {
+            "walk": "query.is_moving"
+          }
+        ]
+      }
+    }
+  }
+}

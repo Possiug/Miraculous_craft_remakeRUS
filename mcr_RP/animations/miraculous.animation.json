@@ -1,0 +1,43 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.miraculous.first_person": {
+			"loop": true,
+			"bones": {
+				"rightitem": {
+					"rotation": [120, 45, 0],
+					"position": [-2, 0, -2]
+				},
+				"miraculous": {
+					"rotation": [90, 0, 0]
+				},
+				"necklace": {
+					"position": [0, -2, -2]
+				},
+				"fan": {
+					"position": [0, -1, -1],
+					"scale": [1.8, 1.8, 1]
+				},
+				"weapon": {
+					"rotation": [0, -45, 0],
+					"position": [-1, 0, 0]
+				}
+			}
+		},
+		"animation.miraculous.third_person": {
+			"loop": true,
+			"bones": {
+				"rightitem": {
+					"rotation": [90, 0, 0],
+					"position": [0, -1, -2]
+				},
+				"necklace": {
+					"position": [0, -1, 0]
+				},
+				"fan": {
+					"scale": [1.8, 1.8, 1]
+				}
+			}
+		}
+	}
+}

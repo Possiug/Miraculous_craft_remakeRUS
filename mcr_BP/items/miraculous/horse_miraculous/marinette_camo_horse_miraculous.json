@@ -1,0 +1,34 @@
+{
+ "format_version":  "1.20.30",           "minecraft:item":  {
+    "description":  {
+      "category": "Commands",
+        "identifier":"miraculous:marinette_camo_horse_miraculous"
+        },
+    "components":  {
+         "minecraft:max_stack_size":  1,
+    "minecraft:enchantable":  {
+     "value":  10,
+     "slot":  "armor_head"
+      },
+    "minecraft:icon": {
+                "texture": "marinette_camo_horse_miraculous"
+            },
+	"minecraft:on_use": {
+		"on_use": {
+		  "event": "miraculous"
+		}
+	  }
+    },
+    "events": {
+	  "miraculous": {
+		"run_command": {
+		  "command": [
+		    "gamerule sendcommandfeedback false",
+		    "tp @e[type=miraculous:kaalki, c=1] @s",
+		    "tp @e[type=miraculous:aqua_kaalki, c=1] @s"
+		  ]
+	    }
+	  }
+    }
+  }
+}

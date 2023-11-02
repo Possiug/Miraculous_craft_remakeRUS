@@ -1,0 +1,121 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.miraculous_timer": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "miraculous_timer": "(2.0)"
+            }
+          ],
+          "on_entry": [
+            "/scoreboard objectives add miraculous_timer dummy",
+            "/scoreboard players add @s[tag=timer_on, tag=!timer_off] miraculous_timer 1",
+            "/execute @s[scores={miraculous_timer=1}] ~~~ playsound five_minutes @p ~ ~ ~",
+            "/execute @s[scores={miraculous_timer=1..200}] ~~~ title @s actionbar §a▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌",
+            "/execute @s[scores={miraculous_timer=201..400}] ~~~ title @s actionbar §a▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌ ",
+            "/execute @s[scores={miraculous_timer=401..600}] ~~~ title @s actionbar §a▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌  ",
+            "/execute @s[scores={miraculous_timer=601..800}] ~~~ title @s actionbar §a▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌   ",
+            "/execute @s[scores={miraculous_timer=801..1000}] ~~~ title @s actionbar §a▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌    ",
+            "/execute @s[scores={miraculous_timer=801..1000}] ~~~ playsound five_minutes @p ~ ~ ~",
+
+            "/execute @s[scores={miraculous_timer=1001..1200}] ~~~ title @s actionbar §6▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌     ",
+            "/execute @s[scores={miraculous_timer=1201..1400}] ~~~ title @s actionbar §6▌▌▌▌▌▌▌▌▌▌▌▌▌▌      ",
+            "/execute @s[scores={miraculous_timer=1401..1600}] ~~~ title @s actionbar §6▌▌▌▌▌▌▌▌▌▌▌▌▌       ",
+            "/execute @s[scores={miraculous_timer=1601..1800}] ~~~ title @s actionbar §6▌▌▌▌▌▌▌▌▌▌▌▌        ",
+				   "/execute @s[scores={miraculous_timer=1801..2000}] ~~~ title @s actionbar §6▌▌▌▌▌▌▌▌▌▌▌         ",
+            "/execute @s[scores={miraculous_timer=1801..2000}] ~~~ playsound five_minutes @p ~ ~ ~",
+
+            "/execute @s[scores={miraculous_timer=2001..2200}] ~~~ title @s actionbar §e▌▌▌▌▌▌▌▌▌▌          ",
+            "/execute @s[scores={miraculous_timer=2201..2400}] ~~~ title @s actionbar §e▌▌▌▌▌▌▌▌▌           ",
+            "/execute @s[scores={miraculous_timer=2401..2600}] ~~~ title @s actionbar §e▌▌▌▌▌▌▌▌            ",
+				   "/execute @s[scores={miraculous_timer=2601..2800}] ~~~ title @s actionbar §e▌▌▌▌▌▌▌             ",
+            "/execute @s[scores={miraculous_timer=2801..3000}] ~~~ title @s actionbar §e▌▌▌▌▌▌              ",
+            "/execute @s[scores={miraculous_timer=2801..3000}] ~~~ playsound five_minutes @p ~ ~ ~",
+
+            "/execute @s[scores={miraculous_timer=3001..3200}] ~~~ title @s actionbar §c▌▌▌▌▌              ",
+            "/execute @s[scores={miraculous_timer=3201..3400}] ~~~ title @s actionbar §c▌▌▌▌              ",
+            "/execute @s[scores={miraculous_timer=3401..3600}] ~~~ title @s actionbar §c▌▌▌              ",  
+            "/execute @s[scores={miraculous_timer=3601..3800}] ~~~ title @s actionbar §c▌▌             ", 
+            "/execute @s[scores={miraculous_timer=3801..4000}] ~~~ title @s actionbar §c▌              ",
+
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ tag @s add timer_off",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_cat, tag=use_cataclysm] cat_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_ladybug, tag=use_lucky_charm] ladybug_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_bee, tag=use_venom] bee_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_dragon, tag=use_3_elements] dragon_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_horse, tag=use_voyage] horse_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_butterfly, tag=use_akuma] butterfly_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_turtle, tag=use_shell_ter] turtle_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_fox, tag=use_mirage] fox_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_goat, tag=use_genesis] goat_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_tiger, tag=use_clout] tiger_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_peacock, tag=use_amok] peacock_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_snake, tag=use_second_chance] snake_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_bull, tag=use_resistance] bull_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_rooster, tag=use_sublimation] rooster_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_mouse, tag=use_multitude] mouse_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ scoreboard players set @s miraculous_timer 0"
+					]
+				},
+        "miraculous_timer": {
+          "transitions": [
+            {
+              "default": "(2.0)"
+            }
+          ],
+          "on_entry": [
+            "/scoreboard objectives add miraculous_timer dummy",
+            "/scoreboard players add @s[tag=timer_on, tag=!timer_off] miraculous_timer 1",
+            "/execute @s[scores={miraculous_timer=1}] ~~~ playsound five_minutes @p ~ ~ ~",
+            "/execute @s[scores={miraculous_timer=1..200}] ~~~ title @s actionbar §a▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌",
+            "/execute @s[scores={miraculous_timer=201..400}] ~~~ title @s actionbar §a▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌ ",
+            "/execute @s[scores={miraculous_timer=401..600}] ~~~ title @s actionbar §a▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌  ",
+            "/execute @s[scores={miraculous_timer=601..800}] ~~~ title @s actionbar §a▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌   ",
+            "/execute @s[scores={miraculous_timer=801..1000}] ~~~ title @s actionbar §a▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌    ",
+            "/execute @s[scores={miraculous_timer=801..1000}] ~~~ playsound five_minutes @p ~ ~ ~",
+
+            "/execute @s[scores={miraculous_timer=1001..1200}] ~~~ title @s actionbar §6▌▌▌▌▌▌▌▌▌▌▌▌▌▌▌     ",
+            "/execute @s[scores={miraculous_timer=1201..1400}] ~~~ title @s actionbar §6▌▌▌▌▌▌▌▌▌▌▌▌▌▌      ",
+            "/execute @s[scores={miraculous_timer=1401..1600}] ~~~ title @s actionbar §6▌▌▌▌▌▌▌▌▌▌▌▌▌       ",
+            "/execute @s[scores={miraculous_timer=1601..1800}] ~~~ title @s actionbar §6▌▌▌▌▌▌▌▌▌▌▌▌        ",
+				   "/execute @s[scores={miraculous_timer=1801..2000}] ~~~ title @s actionbar §6▌▌▌▌▌▌▌▌▌▌▌         ",
+            "/execute @s[scores={miraculous_timer=1801..2000}] ~~~ playsound five_minutes @p ~ ~ ~",
+
+            "/execute @s[scores={miraculous_timer=2001..2200}] ~~~ title @s actionbar §e▌▌▌▌▌▌▌▌▌▌          ",
+            "/execute @s[scores={miraculous_timer=2201..2400}] ~~~ title @s actionbar §e▌▌▌▌▌▌▌▌▌           ",
+            "/execute @s[scores={miraculous_timer=2401..2600}] ~~~ title @s actionbar §e▌▌▌▌▌▌▌▌            ",
+				   "/execute @s[scores={miraculous_timer=2601..2800}] ~~~ title @s actionbar §e▌▌▌▌▌▌▌             ",
+            "/execute @s[scores={miraculous_timer=2801..3000}] ~~~ title @s actionbar §e▌▌▌▌▌▌              ",
+            "/execute @s[scores={miraculous_timer=2801..3000}] ~~~ playsound five_minutes @p ~ ~ ~",
+
+            "/execute @s[scores={miraculous_timer=3001..3200}] ~~~ title @s actionbar §c▌▌▌▌▌              ",
+            "/execute @s[scores={miraculous_timer=3201..3400}] ~~~ title @s actionbar §c▌▌▌▌              ",
+            "/execute @s[scores={miraculous_timer=3401..3600}] ~~~ title @s actionbar §c▌▌▌              ",  
+            "/execute @s[scores={miraculous_timer=3601..3800}] ~~~ title @s actionbar §c▌▌             ", 
+            "/execute @s[scores={miraculous_timer=3801..4000}] ~~~ title @s actionbar §c▌              ",
+
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ tag @s add timer_off",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_cat, tag=use_cataclysm] cat_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_ladybug, tag=use_lucky_charm] ladybug_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_bee, tag=use_venom] bee_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_dragon, tag=use_3_elements] dragon_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_horse, tag=use_voyage] horse_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_butterfly, tag=use_akuma] butterfly_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_turtle, tag=use_shell_ter] turtle_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_fox, tag=use_mirage] fox_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_goat, tag=use_genesis] goat_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_tiger, tag=use_clout] tiger_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_peacock, tag=use_amok] peacock_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_snake, tag=use_second_chance] snake_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_bull, tag=use_resistance] bull_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_rooster, tag=use_sublimation] rooster_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ event entity @s[tag=is_mouse, tag=use_multitude] mouse_miraculous_detransform",
+            "/execute @s[scores={miraculous_timer=4001}] ~~~ scoreboard players set @s miraculous_timer 0"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "miraculous:butterfly",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+	   	},
+	    "component_groups": {
+	    "akuma_skeleton": {
+		  "minecraft:transformation": {
+		    "into": "miraculous:akuma_skeleton",
+		    "drop_inventory": true
+		  }
+		},
+	    "akuma_spider": {
+		  "minecraft:transformation": {
+		    "into": "miraculous:akuma_spider",
+		    "drop_inventory": true
+		  }
+		},
+	    "akuma_zombie": {
+		  "minecraft:transformation": {
+		    "into": "miraculous:akuma_zombie",
+		    "drop_inventory": true
+		  }
+		},
+	    "akuma_creeper": {
+		  "minecraft:transformation": {
+		    "into": "miraculous:akuma_creeper",
+		    "drop_inventory": true
+		  }
+		},
+		"power_short": {
+		  "minecraft:input_ground_controlled": {},
+		  "minecraft:timer": {
+		    "time": 140,
+		    "time_down_event": {
+		      "event": "power_empty"
+		    }
+		  },
+		  "minecraft:is_ignited": {}
+		},
+		"power_long": {
+		  "minecraft:input_ground_controlled": {},
+		  "minecraft:timer": {
+		    "time": 850,
+		    "time_down_event": {
+		      "event": "power_empty"
+		    }
+		  },
+		  "minecraft:is_ignited": {}
+		}
+    },
+	"components": {
+		"minecraft:type_family": {
+		  "family": [
+		    "kwami"
+		  ]
+		},
+		"minecraft:interact": {
+		  "interactions": [
+		{
+		  "on_interact": {
+		    "filters": {
+			  "all_of": [
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "use_akuma" },
+			    { "test": "has_tag", "subject": "other", "operator": "=", "value": "zombie_akumatize" },
+			    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "miraculous:butterfly_cane" },
+			    { "test": "is_variant", "subject": "self", "value": 0 },
+			    { "test": "is_sneaking", "subject": "other", "operator": "=", "value": false }
+			  ]
+			},
+			"event": "akuma_zombie"
+		  },
+		  "interact_text": "action.interact.akumatize",
+		  "use_item": false
+		},
+	    {
+		  "on_interact": {
+		    "filters": {
+			  "all_of": [
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "use_akuma" },
+			    { "test": "has_tag", "subject": "other", "operator": "=", "value": "creeper_akumatize" },
+			    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "miraculous:butterfly_cane" },
+			    { "test": "is_variant", "subject": "self", "value": 0 },
+			    { "test": "is_sneaking", "subject": "other", "operator": "=", "value": false }
+			  ]
+			},
+			"event": "akuma_creeper"
+		  },
+		  "interact_text": "action.interact.akumatize",
+		  "use_item": false
+		},
+	    {
+		  "on_interact": {
+		    "filters": {
+			  "all_of": [
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "use_akuma" },
+			    { "test": "has_tag", "subject": "other", "operator": "=", "value": "skeleton_akumatize" },
+			    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "miraculous:butterfly_cane" },
+			    { "test": "is_variant", "subject": "self", "value": 0 },
+			    { "test": "is_sneaking", "subject": "other", "operator": "=", "value": false }
+			  ]
+			},
+			"event": "akuma_skeleton"
+		  },
+		  "interact_text": "action.interact.akumatize",
+		  "use_item": false
+		},
+	    {
+		  "on_interact": {
+		    "filters": {
+			  "all_of": [
+			    { "test": "has_tag", "subject": "other", "operator": "!=", "value": "use_akuma" },
+			    { "test": "has_tag", "subject": "other", "operator": "=", "value": "spider_akumatize" },
+			    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "miraculous:butterfly_cane" },
+			    { "test": "is_variant", "subject": "self", "value": 0 },
+			    { "test": "is_sneaking", "subject": "other", "operator": "=", "value": false }
+			  ]
+			},
+			"event": "akuma_spider"
+		  },
+		  "interact_text": "action.interact.akumatize",
+		  "use_item": false
+		    }
+		  ]
+		},
+		"minecraft:health": {
+		  "value": 15,
+		  "max": 15
+		},
+		"minecraft:movement":  {
+ 			"value":  0.1
+		},
+		"minecraft:flying_speed":  {
+      	"value":  0.1
+		},
+		"minecraft:navigation.hover":  {
+       "can_path_over_water":  true,
+       "can_sink":  false,
+       "can_pass_doors":  false,
+       "can_path_from_air":  true,
+       "avoid_water":  true,
+       "avoid_damage_blocks":  true,
+       "avoid_sun":  false
+		},
+		"minecraft:movement.hover":  {        
+		},
+		"minecraft:jump.static":  {     
+		},
+		"minecraft:can_fly":  {  
+		},
+		"minecraft:physics":  {
+       "has_gravity":  false
+		},
+       
+		"minecraft:collision_box": {
+		  "width": 0.6,
+		  "height": 0.8
+		},
+      "minecraft:behavior.mount_pathing": {
+        "priority": 2,
+        "speed_multiplier": 1.5,
+        "target_dist": 0.0,
+        "track_target": true
+      },
+      "minecraft:behavior.tempt": {
+        "priority": 4,
+        "speed_multiplier": 1.0,
+        "items": [
+          "miraculous:butterfly_cane",
+          "miraculous:hawk_moth",
+          "miraculous:hawk_moth_dark_wings_fall"
+        ]
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 1.0
+        },
+		"minecraft:behavior.player_ride_tamed": {},
+		"minecraft:conditional_bandwidth_optimization": {
+		  "default_values": {
+			"max_optimized_distance": 60,
+			"max_dropped_ticks": 20,
+			"use_motion_prediction_hints": true
+		  },
+		  "conditional_values": [
+		    {
+			"max_optimized_distance": 0,
+			"max_dropped_ticks": 0,
+			  "conditional_values": [
+			    {
+					"test": "is_moving",
+					"subject": "self",
+					"operator": "==",
+					"value": true
+			    }
+			  ]
+		    }
+		  ]
+		}
+	},
+	"events": {
+	    "akuma_skeleton": {
+				"sequence": [
+					{
+                   "add": {
+							"component_groups": [
+								"akuma_skeleton"
+							]
+						}
+					},
+					{
+                "run_command": {
+                  "command": [
+                    "tellraw @a[tag=!use_akuma] {\"rawtext\":[{\"text\":\"§5<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:fly_away_little_akuma\"}]}",
+                    "playsound my_little_akuma @a ~~~",
+                    "tag @p[tag=!use_akuma] add use_akuma",
+                    "tag @p[tag=use_akuma, tag=!full_power] add timer_on"
+							]
+						}
+					}
+				]
+			},
+	    "akuma_spider": {
+				"sequence": [
+					{
+                   "add": {
+							"component_groups": [
+								"akuma_spider"
+							]
+						}
+					},
+					{
+                "run_command": {
+                  "command": [
+                    "tellraw @a {\"rawtext\":[{\"text\":\"§5<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:fly_away_little_akuma\"}]}",
+                    "playsound my_little_akuma @a ~~~",
+                    "tag @p[tag=!use_akuma] add use_akuma",
+                    "tag @p[tag=use_akuma, tag=!full_power] add timer_on"
+							]
+						}
+					}
+				]
+			},
+	    "akuma_zombie": {
+				"sequence": [
+					{
+                   "add": {
+							"component_groups": [
+								"akuma_zombie"
+							]
+						}
+					},
+					{
+                "run_command": {
+                  "command": [
+                    "tellraw @a {\"rawtext\":[{\"text\":\"§5<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:fly_away_little_akuma\"}]}",
+                    "playsound my_little_akuma @a ~~~",
+                    "tag @p[tag=!use_akuma] add use_akuma",
+                    "tag @p[tag=use_akuma, tag=!full_power] add timer_on"
+							]
+						}
+					}
+				]
+			},
+	    "akuma_creeper": {
+				"sequence": [
+					{
+                   "add": {
+							"component_groups": [
+								"akuma_creeper"
+							]
+						}
+					},
+					{
+                "run_command": {
+                  "command": [
+                    "tellraw @a {\"rawtext\":[{\"text\":\"§5<\"},{\"selector\":\"@p\"},{\"text\":\">§r\"},{\"translate\":\"tile.miraculous:fly_away_little_akuma\"}]}",
+                    "playsound my_little_akuma @a ~~~",
+                    "tag @p[tag=!use_akuma] add use_akuma",
+                    "tag @p[tag=use_akuma, tag=!full_power] add timer_on"
+							]
+						}
+					}
+				]
+			},
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": [
+					  "instant_despawn"
+					  ]
+					}
+			},
+			"power_empty": {
+				"remove": {
+				  "component_groups": [
+					  "power_short",
+					  "power_long"
+				  ]
+				}
+			  }
+	    }
+	}
+}
