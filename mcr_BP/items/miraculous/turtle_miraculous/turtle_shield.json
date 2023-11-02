@@ -26,8 +26,6 @@
       "minecraft:can_destroy_in_creative": false,
       "tag:minecraft:is_shield": {},
       "minecraft:display_name": {},
-      "minecraft:animates_in_toolbar": false,
-      "minecraft:ignores_permission": true,
       "minecraft:on_use": {
         "on_use": {
           "event": "on_use_event",

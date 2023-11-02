@@ -14,9 +14,6 @@
 				}
 			},
 			"minecraft:max_stack_size": 1,
-			"minecraft:enchantable": {
-				"slot": "flintsteel"
-			},
 			"minecraft:icon": {
 				"texture": "lucky_charm_flint_and_steel"
 			},

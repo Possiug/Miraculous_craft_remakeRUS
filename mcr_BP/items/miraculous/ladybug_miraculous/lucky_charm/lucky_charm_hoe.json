@@ -15,14 +15,6 @@
 					"max": 100
 				}
 			},
-			"minecraft:digger": {
-        "destroy_speeds": [{
-			"blocks":{
-				"tags":"q.all_tags('')"
-			},
-        	"speed": 8
-        }]
-      },
 			"minecraft:damage": 3,
 			"minecraft:enchantable": {
 				"value": 10,
