@@ -170,9 +170,7 @@
         "priority": 4,
         "speed_multiplier": 1.0,
         "items": [
-          "miraculous:butterfly_cane",
-          "miraculous:hawk_moth",
-          "miraculous:hawk_moth_dark_wings_fall"
+          "miraculous:butterfly_cane"
         ]
       },
       "minecraft:behavior.random_stroll": {
