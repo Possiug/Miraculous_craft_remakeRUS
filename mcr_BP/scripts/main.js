@@ -1,4 +1,4 @@
-import { world, system, ItemStack, MinecraftEntityTypes, DynamicPropertiesDefinition } from "@minecraft/server";
+import { world, system, ItemStack} from "@minecraft/server";
 
 import "./power/ladybug_miraculous_power";
 import "./preference/ladybug_miraculous_preference";

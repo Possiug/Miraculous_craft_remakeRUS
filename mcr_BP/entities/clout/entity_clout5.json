@@ -34,7 +34,6 @@
       },
       "minecraft:damage_sensor": [
         {
-          "cause": "any",
           "deals_damage": false
         }
       ],
