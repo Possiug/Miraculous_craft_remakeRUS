@@ -8,7 +8,7 @@
     "components": {
 		"minecraft:damage": 2,
 	"minecraft:wearable":{
-		"slot":"slot.weapon.mainhand"
+		"slot":"slot.weapon.offhand"
 		},
 		"minecraft:icon":{
 			"texture": "voyage_portal",

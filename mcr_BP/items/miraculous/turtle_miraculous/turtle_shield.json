@@ -37,40 +37,6 @@
       "minecraft:enchantable": {
         "value": 15,
         "slot": "sword"
-      },
-      "minecraft:render_offsets": {
-        "main_hand": {
-          "third_person": {
-            "scale": [
-              0.16,
-              0.16,
-              0.16
-            ]
-          },
-          "first_person": {
-            "scale": [
-              0.06079999999996352,
-              0.06079999999996352,
-              0.06079999999996352
-            ]
-          }
-        },
-        "off_hand": {
-          "third_person": {
-            "scale": [
-              0.16,
-              0.16,
-              0.16
-            ]
-          },
-          "first_person": {
-            "scale": [
-              0.06079999999996352,
-              0.06079999999996352,
-              0.06079999999996352
-            ]
-          }
-        }
       }
     },
     "events": {

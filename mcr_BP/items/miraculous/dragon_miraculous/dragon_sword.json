@@ -48,40 +48,6 @@
           "event": "hurt"
         }
       },
-      "minecraft:render_offsets": {
-        "main_hand": {
-          "third_person": {
-            "scale": [
-              0.05,
-              0.05,
-              0.05
-            ]
-          },
-          "first_person": {
-            "scale": [
-              0.018999999999988602,
-              0.018999999999988602,
-              0.018999999999988602
-            ]
-          }
-        },
-        "off_hand": {
-          "third_person": {
-            "scale": [
-              0.05,
-              0.05,
-              0.05
-            ]
-          },
-          "first_person": {
-            "scale": [
-              0.018999999999988602,
-              0.018999999999988602,
-              0.018999999999988602
-            ]
-          }
-        }
-      },
       "tag:minecraft:is_sword": {},
       "minecraft:display_name": {}
     },

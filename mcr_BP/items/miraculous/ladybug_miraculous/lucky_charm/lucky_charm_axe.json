@@ -5,18 +5,7 @@
 			"identifier": "miraculous:lucky_charm_axe",
 			"category": "Commands"
 		},
-		"components": {"minecraft:render_offsets": {
-		"main_hand": {
-			"third_person": {
-				"position": [0.26, 1.0, -0.55],
-				"scale": [0.024, 0.024, 0.024]
-			},
-			"first_person": {
-				"position": [1.77, -0.4, -3.2],
-				"scale": [0.03, 0.03, 0.03]
-			}
-		}
-	},
+		"components": {
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:durability": {
